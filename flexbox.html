@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@305&display=swap" rel="stylesheet">
+    <title>Flexbox</title>
+</head>
+<body class="flexbox-body">
+
+    <div class="stickynav">
+        <ul class="stickynav__ul">
+            <li>
+                <p class="stickynav-separator">Container-specific Properties</p>
+              </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#display:flex-section">display: flex</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flexdirection-section">flex-direction: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#terms-explainer-section">Terms Explainer </a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#justify-content-section">justify-content: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#align-content-section">align-content: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#align-items-section">align-items: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#align-self-section">align-self: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flex-wrap-section">flex-wrap: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flex-flow-shorthand-section">flex-flow: shorthand property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#perfect-centering-section">perfect centering with flexbox</a>
+          </li>
+          <li>
+            <p class="stickynav-separator">Item-specific Properties</p>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#order-section">order: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flex-grow-section">flex-grow: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flex-shrink-section">flex-shrink: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flex-basis-section">flex-basis: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--pink">
+            <a href="#flex-shorthand-section">flex: shorthand property</a>
+          </li>
+        </ul>
+    </div>
+
+    <button id="flexbox-button">
+        <a href="./css_page.html">Back to CSS Notes Page</a>
+    </button>
+
+
+    <div class="flexbox-page-container">
+        <!-- NORMAL CONTAINER, FLEXBOX CONTAINER, FLEX-DIRECTION -->
+
+        <section>
+            <p class="flexbox-info-txt"> First,<b> here is a regular div container</b> with 3 paragraph elements to show what normally happens when we make a container. The paragraph elements are block elements and so automatically each one goes onto a new line and creates a column type formation. </p>
+
+                <div class="regular-container" >
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+
+            <br>
+
+                <h2 style="text-align:center;">Container-based Properties</h2>
+
+            <br>
+
+            <b class="extraNotesBoldTxt" id="flexdirectiontop"><u>CREATING A FLEXBOX; FLEX-DIRECTION</u></b>
+
+                <p class="flexbox-info-txt" id="display:flex-section">
+                    Now, let's make this into a flexbox (a block element with flex children elements inside, i.e., <b>'items'</b>). We do this by applying <b class="propertyBoldTxt">'display: flex'</b> to the container. Look at the change:
+                </p>
+
+                    <b class="propertyBoldTxt">row</b>
+                    <div class="flexbox-container">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+
+                <p class="flexbox-info-txt" id="flexdirection-section">
+                    We can change the direction of the main-axis (the direction in which the items go) by applying the property <b class="propertyBoldTxt">'flex-direction:'</b>. By default (which we can see in the example above) the value is <b>'row'</b> but other values we can apply are: <b>row-reverse | column | column-reverse</b>. Notice the differences in the examples:
+                </p>
+
+                    <b class="propertyBoldTxt">row-reverse</b>: items are ordered in the opposite direction of the main axis (text direction).
+                    <div class="flexbox-container fd-row">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">column</b>: items are ordered the same direction as the main axis, which is now vertical.
+                    <div class="flexbox-container fd-column">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">column-reverse</b>: items are ordered the opposite direction of the main axis, again vertical.
+                    <div class="flexbox-container fd-columnreverse">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+
+                <p class="flexbox-info-txt">
+                    <i><b>Note:</b> changing the visual order of the items doesn't change the order of the items in HTML which can create usability issues (for example for screen readers, or if users tab through the items) as the browser will follow the HTML order, not the CSS display order.</i>
+                </p>
+
+        </section>
+
+        <!-- TERMS EXPLAINER BOX -->
+
+        <section id="terms-explainer-section">
+            <br>
+
+            <b class="boldRedTxt"><u>TERMS EXPLAINER</u></b>
+
+                <div class="flexbox-info-txt terms-explainer">
+                    Before we continue, it's important that we understand certain terms because in comparing them we might end up a bit confused and also because when we see CSS Grid later we will also see these terms plus a few more which confuse us even further.
+                    <br><br><br>
+                    <b class="boldRedTxt">"justify":</b><br>
+                    another way of saying <b>'main-axis'</b>. It's just a name, it doesn't mean anything in itself.
+                    <br><br><br>
+                    <b class="boldRedTxt">"align":</b><br>
+                    another way of saying <b>'cross-axis'</b>. Again, it's just a name.
+                    <br><br><br>
+                    <b class="boldRedTxt">"-content":</b><br>
+                    properties ending with this keyword <b>move the empty container space around the flex/grid items,</b> and thus move the whole block of items/content within the container simultaneously. However, this is <b>as long as the parent container is bigger than its children because empty space is <em>required</em> for these properties to work!</b> That's why it's quite normal to set the parent's height so that it's deliberately bigger than it would normally be, in order to achieve the effects delivered by the '-content' properties. <b>Note:</b> with these properties <b>the items themselves don't change in size (except stretch which makes items take up all free space)</b>, only the distribution or positioning of the items relative to parent container (due to the moving round of empty space).
+                    <br><br><br>
+                    <b class="boldRedTxt">"-items":</b><br>
+                    properties ending with this keyword <b>look at each column or row track individually and tell the grid items where and how to line up within their individual cells, moving all the items together simultaneously within the track (except stretch which makes items take up all free space).</b> That is, the items line up in relation to each other.
+                    <br><br><br>
+                    <b><a href="https://codepen.io/enxaneta/full/adLPwv/ - Can play around and visualise differences" target="_blank">Following this link</a></b> we can find a great resource which helps us visualise these following properties and see the differences between the different values in real time.
+                    <br><br>
+                    <hr>
+                    <br>
+                    To avoid confusing with CSS Grid, <b>these are the justify and align properties that we can apply to CSS Flexbox:</b>
+                    <ul>
+                        <li>
+                        <b class="propertyBoldTxt">justify-content</b> (aka main-axis-content)
+                        </li>
+                        <br>
+                        <hr>
+                        <br>
+                        <li>
+                            <b class="propertyBoldTxt">align-content</b> (aka cross-axis-content) - Note: requires multiple 'flex-wrap:wrap' rows in order to work.
+                        </li>
+                        <br>
+                        <li>
+                            <b class="propertyBoldTxt">align-items</b> (aka cross-axis-items)
+                        </li>
+                        <br>
+                        <li>
+                            <b class="propertyBoldTxt">align-self</b> (aka cross-axis-item) - Note: is 'align-item' but for one item and this property overrides the more general 'align-items:' declaration.
+                        </li>
+                    </ul>
+                </div>
+
+        </section>
+
+        <!-- JUSTIFY-CONTENT -->
+
+        <section id="justify-content-section">
+            <br>
+
+            <b class="extraNotesBoldTxt" id="justify-content-flexbox-id"><u>JUSTIFY-CONTENT (MAIN-AXIS-CONTENT)</u></b>
+
+                <p class="flexbox-info-txt">
+                    <b>The <b class="propertyBoldTxt">'justify-content:'</b> property moves the empty container space around the flex items along the main axis, and as a result, moves the whole block of items/content within the container simultaneously.</b> This only works if the parent is bigger than the items (i.e., there's empty space to work with). Here the the items themselves don't change in size (except stretch which makes items take up all free space), only the distribution or positioning of the items relative to parent container (due to the moving round of empty space).
+                    <br><br>
+                    The values we can apply here are: <b>flex-start | flex-end | center | space-between | space-around | space-evenly</b>. Notice the differences in the examples:
+                </p>
+
+                    <b class="propertyBoldTxt">flex-start (default)</b>: empty space placed to the right, pushing the items to the start of the container's main axis.
+                    <div class="flexbox-container fbc2 jc-flexstart">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">flex-end</b>:  empty space placed to the right, pushing the items towards the end of the container's main axis.
+                    <div class="flexbox-container fbc2 jc-flexend">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">center</b>: empty space placed to the left and right, pushing the items towards the center of the main-axis.
+                    <div class="flexbox-container fbc2 jc-center">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">space-between</b>: the empty space is distributed between the items along the main-axis.
+                    <div class="flexbox-container fbc2 jc-spacebetween">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">space-around</b>: the empty space is distributed around the items along the main-axis, adding space before the first item and after the last one.
+                    <div class="flexbox-container fbc2 jc-spacearound">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">space-evenly</b>: the empty space is equally distributed between and after the items along the main-axis.
+                    <div class="flexbox-container fbc2 jc-spaceevenly">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+
+                    <p class="flexbox-info-txt">
+                        <i><b>Note:</b> we have another value we can apply, <b>'safe'</b>. This means, in the case of a small device or screen size, the aligning elements will switch to 'flex-start' alignment in case of an overflowing situation. Thus, the elements are always accessible to the user. More information about this topic can be found <b><a href="https://www.stefanjudis.com/today-i-learned/safe-unsafe-alignment-in-css-flexbox/#data-loss-in-the-context-of-css-flexbox" target="_blank">here</a></b>.</i>
+                    </p>
+
+        </section>
+
+        <!-- ALIGN-CONTENT -->
+
+        <section id="align-content-section">
+        <br>
+
+                <b class="extraNotesBoldTxt" id="align-content-flexbox-id"><u>ALIGN-CONTENT (CROSS-AXIS-CONTENT)</u></b>
+
+                <p class="flexbox-info-txt"></p>
+                    <b>The <b class="propertyBoldTxt">'align-content:'</b> property moves the empty container space around the flex items along the <u>cross-axis</u>, and as a result, moves the whole block of items/content within the container simultaneously. It only works if the parent is bigger than the items (i.e., there's empty space to work with) AND we have more than 'flex-wrap: wrap' row within the container</b> (see below 'flex-wrap'). Here the the items themselves don't change in size (except stretch which makes items take up all free space), only the distribution or positioning of the items relative to parent container (due to the moving round of empty space).
+                    <br><br>
+                    The values we can apply here are: <b>stretch | flex-start | center | flex-end | space-between | space-around</b>. Notice the differences in the examples:
+                </p>
+
+
+                <b class="propertyBoldTxt">stretch (default)</b>: all the empty space is occupied by the items.
+                    <div class="flexbox-container fbc5 fw-wrap ac-stretch">
+                        <p>1</p>
+                        <p>2</p>
+                        <p style="padding: 20px; font-size:3rem">3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p style="padding: 30px; font-size:3rem">11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+
+                    <b class="propertyBoldTxt">flex-start</b>: empty space is pushed to the bottom, pushing the items to the top of the cross-axis. Each item only takes up the space it needs.
+                    <div class="flexbox-container fbc5 fw-wrap ac-flexstart">
+                        <p>1</p>
+                        <p>2</p>
+                        <p style="padding: 20px; font-size:3rem">3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p style="padding: 30px; font-size:3rem">11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">center</b>: empty space is placed at the top and bottom, pushing the items towards the center of the cross-axis. Each item only takes up the space it needs.
+                    <div class="flexbox-container fbc5 fw-wrap ac-center">
+                        <p>1</p>
+                        <p>2</p>
+                        <p style="padding: 20px; font-size:3rem">3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p style="padding: 30px; font-size:3rem">11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">flex-end</b>: the opposite of flex-start.
+                    <div class="flexbox-container fbc5 fw-wrap ac-flexend">
+                        <p>1</p>
+                        <p>2</p>
+                        <p style="padding: 20px; font-size:3rem">3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p style="padding: 30px; font-size:3rem">11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">space-between</b>: the empty space is distributed between the items along the cross-axis.
+                    <div class="flexbox-container fbc5 fw-wrap ac-spacebetween">
+                        <p>1</p>
+                        <p>2</p>
+                        <p style="padding: 20px; font-size:3rem">3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p style="padding: 30px; font-size:3rem">11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+                    <b class="propertyBoldTxt">space-around</b>: the empty space is distributed around the items along the cross-axis, adding space before the first item and after the last one.
+                    <div class="flexbox-container fbc5 fw-wrap ac-spacearound">
+                        <p>1</p>
+                        <p>2</p>
+                        <p style="padding: 20px; font-size:3rem">3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p style="padding: 30px; font-size:3rem">11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+        </section>
+
+        <!-- ALIGN-ITEMS -->
+
+        <section id="align-items-section">
+            <br>
+
+            <b class="extraNotesBoldTxt"  id="align-items-flexbox-id"><u>ALIGN-ITEMS (CROSS-AXIS-ITEMS)</u></b>
+
+
+                <p class="flexbox-info-txt">
+                    <b>The <b class="propertyBoldTxt">'align-items:'</b> property affects the items <u>along the cross-axis</u> individually, telling the flex items where and how to line up within their individual cells, moving all the items together simultaneously within the track (except stretch which makes items take up all free space).</b> That is, the items line up in relation to each other.
+                    <br><br>
+                    The values we can apply here are: <b>stretch | flex-start | flex-end | center | baseline</b>. Notice the differences in the examples:
+                </p>
+
+                <b class="propertyBoldTxt">stretch (default)</b>: items will stretch across the whole cross axis (normally the whole vertical length).
+                    <div class="flexbox-container fbc3 ai-stretch">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+
+                <b class="propertyBoldTxt">start</b>: items are aligned at the start of the cross axis (normally at the top of the vertical side). Some browsers still require the older keyword 'flex-start'.
+                    <div class="flexbox-container fbc3 ai-flexstart">
+                        <p>1</p>
+                        <p class="tallbox">2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                <b class="propertyBoldTxt">end</b>: items are aligned at the end of the cross axis (normally at the bottom of the vertical side). Some browsers still require the older keyword 'flex-start'.
+                    <div class="flexbox-container fbc3 ai-flexend">
+                        <p>1</p>
+                        <p class="tallbox">2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                <b class="propertyBoldTxt">center</b>: items are aligned at the center of the cross axis (in the middle of the vertical length).
+                    <div class="flexbox-container fbc3 ai-center">
+                        <p>1</p>
+                        <p class="tallbox">2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+                <b class="propertyBoldTxt">baseline</b>: items are aligned so that their text baselines align along a horizontal line, even if the item sizes are different.
+                    <div class="flexbox-container fbc3 ai-baseline">
+                        <p>1</p>
+                        <p class="tallbox" style="font-size: 100px;">2</p>
+                        <p>3</p>
+                    </div>
+                    <br><br>
+
+        </section>
+
+        <!-- ALIGN-SELF -->
+
+        <section id="align-self-section">
+        <br>
+
+            <b class="extraNotesBoldTxt" id="align-self-flexbox-id"><u>ALIGN-SELF</u></b>
+
+
+                <p class="flexbox-info-txt">
+                    The <b class="propertyBoldTxt">'align-self:' property</b> <b> is like the 'align-items:' property but only for one individual cell, and overrides this latter property if it is applied in the CSS Flexbox.</b>
+                </p>
+
+                Here item #3 has been individually aligned to the center in a container with a pre-defined height (200px), meaning it is placed in the center and doesn't stretch like the other items do.
+                <div class="flexbox-container fbc12">
+                    <p>1</p>
+                    <p>2</p>
+                    <p id="align-self">3</p>
+                    <p>4</p>
+                </div>
+                <br>
+
+        </section>
+
+        <!-- FLEX-WRAP -->
+
+        <section id="flex-wrap-section">
+        <br>
+
+            <b class="extraNotesBoldTxt"><u>FLEX-WRAP</u></b>
+
+
+                <p class="flexbox-info-txt">
+                    If we <b>want our flex container and its items to spread across multiple lines (especially if we have many of them!) we can use the</b> <b class="propertyBoldTxt">'flex-wrap:' property</b> to allow our items to go onto a new line instead of either a) shrinking in size, or b) overflowing.
+                    <br><br>
+                    The values we can apply here are: <b>nowrap | wrap | wrap-reverse</b>. Notice the differences in the examples:
+                </p>
+
+                <b class="propertyBoldTxt">nowrap (default)</b>: items will remain on a single line, no matter what, and will eventually overflow if needed.
+                    <div class="flexbox-container fbc4 fw-nowrap">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+                <b class="propertyBoldTxt">wrap</b>: items will be distributed among multiple lines if needed.
+                    <div class="flexbox-container fbc4 fw-wrap">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+                <b class="propertyBoldTxt">wrap-reverse</b>: items will be distributed among multiple lines if needed. Any additional line will appear before the previous one.
+                    <div class="flexbox-container fbc4 fw-wrapreverse">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+        </section>
+
+        <!-- FLEX-FLOW -->
+
+        <section id="flex-flow-shorthand-section">
+            <br>
+
+                <b class="extraNotesBoldTxt"><u>FLEX-FLOW (SHORTHAND)</u></b>
+
+
+                    <p class="flexbox-info-txt">
+                        We can use the <b class="propertyBoldTxt">'flex-flow:'</b> shorthand property to <b>set the <b class="propertyBoldTxt">'flex-direction:' and 'flex-wrap' properties</b> <b> at the same time (in that order)</b></b>. All we have to do is write a flex-direction value, put a space, and then put a flex-wrap value. For example:
+                    </p>
+
+                    Here I have applied <b>'flex-flow: column wrap'</b> in a container limited to 300px in height. Notice how the items behave:
+                    <div class="flexbox-container fbc6 flexflow-1">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                    </div>
+                    <br><br>
+
+        </section>
+
+        <!-- PERFECT-CENTERING -->
+
+        <section id="perfect-centering-section">
+            <br>
+
+                <b class="extraNotesBoldTxt" id="flex-perfect-centering-id"><u>PERFECT-CENTERING</u></b>
+
+
+                    <p class="flexbox-info-txt">
+                        To <b>perfectly center</b> an element within a flexbox container we need to apply the <b class="propertyBoldTxt">'justify-direction:'</b> and <b class="propertyBoldTxt">'align-items:'</b> and set the values of both to  <b class="propertyBoldTxt">'center'</b>. Look at the example below:
+                    </p>
+
+                    <div class="flexbox-container perfectcenter">
+                        <p>Centered Item</p>
+                    </div>
+                    <br><br>
+
+        </section>
+
+        <!-- ITEM-SPECIFIC PROPERTIES -->
+
+            <br>
+            <h2 style="text-align:center;">Item-based Properties</h2>
+
+        <!-- ORDER -->
+
+        <section id="order-section">
+            <br>
+
+            <b class="extraNotesBoldTxt"><u>ORDER</u></b>
+
+
+                <p class="flexbox-info-txt">
+                    We can use the <b class="propertyBoldTxt">'order:'</b> property to <b>determine the order the items appear in.</b> By default, flex items will be arranged in the source order with the initial value of order being 0 (zero). If there's a mix of ordered and unordered items, the items without a specific ordering get moved to the front. The problem with this property is that although the visual display order changes, the order in our HTML doesn't change, creating usability problems. It's best to avoid this  property if possible!
+                </p>
+
+                In our HTML code these items are ordered 1-5 and appear in that order. Using CSS they now appear in a different order.
+                <div class="flexbox-container fbc7">
+                    <p id="order-1">1</p>
+                    <p id="order-2">2</p>
+                    <p id="order-3">3</p>
+                    <p id="order-4">4</p>
+                    <p id="order-5">5</p>
+                </div>
+                <br><br>
+
+                In this container the items 4 and 5 don't have an order property applied to them, so they go to the front.
+                <div class="flexbox-container fbc7">
+                    <p id="order-1">1</p>
+                    <p id="order-2">2</p>
+                    <p id="order-3">3</p>
+                    <p>4</p>
+                    <p>5</p>
+                </div>
+                <br>
+
+        </section>
+
+        <!-- FlEX-GROW -->
+
+        <section id="flex-grow-section">
+        <br>
+
+            <b class="extraNotesBoldTxt"><u>FLEX-GROW</u></b>
+
+
+                <p class="flexbox-info-txt">
+                    We can determine <b>how the items will grow inside the container, relative to the other items, to fill or occupy the given space within the container</b> by applying the <b class="propertyBoldTxt">'flex-grow:' property.</b> The default value is 0 (meaning the items do not grow).
+                </p>
+
+                Here items one and three have a value of '1', item two has a value of '2' and item four has a value of '4'. This means, the available space is split into 8 parts, and each item gets their corresponding amount of these 8 parts.
+                <div class="flexbox-container fbc8">
+                    <p id="flexgrow-1">1</p>
+                    <p id="flexgrow-2">2</p>
+                    <p id="flexgrow-3">3</p>
+                    <p id="flexgrow-4">4</p>
+                </div>
+                <br>
+
+                If we have just one box and we give it a flex-grow value of '1', notice how the item grows to fill all the available space despite the very little amount of content we have in it. Setting the flex-grow value to '1' means that automatically the item always grows to fill the alloted space given to it between the total space available (in this case, all the space).
+                <div class="flexbox-container fbc8">
+                    <p id="flexgrow-5">1</p>
+                </div>
+                <br>
+
+        </section>
+
+
+        <!-- FLEX-SHRINK -->
+
+        <section id="flex-shrink-section">
+            <br>
+
+                <b class="extraNotesBoldTxt"><u>FLEX-SHRINK</u></b>
+
+
+                    <p class="flexbox-info-txt">
+                        The <b class="propertyBoldTxt">'flex-shrink:' property</b> is essentially opposite of the 'flex-grow:' property. If there's not enough space available for the flexbox container items, then this property <b>determines how much a flex item will shrink relative to the rest of the flex items.</b> By default the the value is set to '1' meaning all items will shrink down when the container becomes too small to contain all the items. Setting the value to '0' means the item doesn't shrink nor wrap its content - its sibling items will shrink to give space to the target element - meaning there's a possibility of overflow. Negative numbers are invalid here.
+                    </p>
+
+                    Here we have a container with a max-width of 70vw and items with a width of 20vw. Item 4 has a flex-shrink property of '4' meaning it can shrink x4 more than the other items, meaning no overflow occurs.
+                    <div class="flexbox-container flexshrink fbc9">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p id="flexshrink">4</p>
+                    </div>
+                    <br>
+
+                    Here item 4 has a flex-shrink property of '0' meaning this item doesn't shrink and the others do to accommodate it.
+                    <div class="flexbox-container flexshrink fbc9">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p id="flexshrink-2">4</p>
+                    </div>
+                    <br>
+
+        </section>
+
+
+        <!-- FLEX-BASIS -->
+
+        <section id="flex-basis-section">
+            <br>
+
+                <b class="extraNotesBoldTxt"><u>FLEX-BASIS</u></b>
+
+
+                    <p class="flexbox-info-txt">
+                        The <b class="propertyBoldTxt">'flex-basis:' property</b> <b>determines the initial length/size for an item or items before the empty space is distributed between them.</b> The default value is 'auto' meaning the length is equal to the length of the flexible item (whether that be the content length or a length we determined previously). However, if we set a manually size (e.g. 300px) the item will try to reach that size whenever it can because that is its 'base' size or size of reference. The value we give 'flex-basis:' can be used to decide where we start calculating our 'flex-grow:' value from.
+                    </p>
+
+                    Here each item has a different flex-basis length value, defining its initial size (#1 = 10vw, #2 = 25vw, #3 = 30vw, #4 = 5vw)
+                    <div class="flexbox-container fbc10">
+                        <p id="flex-basis-1">1</p>
+                        <p id="flex-basis-2">2</p>
+                        <p id="flex-basis-3">3</p>
+                        <p id="flex-basis-4">4</p>
+                    </div>
+                    <br>
+
+                    Here the value given is 'auto', meaning the item size is based on its content.
+                    <div class="flexbox-container fbc10 flexbasis">
+                        <p>Text</p>
+                        <p>More text</p>
+                        <p>Event more text</p>
+                        <p>Lots and lots of text</p>
+                    </div>
+                    <br>
+
+        </section>
+
+
+        <!-- FLEX SHORTHAND-->
+
+        <section id="flex-shorthand-section">
+            <br>
+
+                <b class="extraNotesBoldTxt"><u>FLEX (SHORTHAND)</u></b>
+
+
+                    <p class="flexbox-info-txt">
+                        The <b class="propertyBoldTxt">'flex:' property</b> <b>is a shorthand property to set the </b> <b class="propertyBoldTxt">'flex-grow:', 'flex-shrink:' and 'flex-basis:' properties</b> <b> at the same time (in that order) for <u>ONE</u> item.</b> This property is commonly used to create responsive layouts and is recommended over using the individual properties since it automatically defines the other properties if no value for them is given. Remember, each of these properties means:
+                    </p>
+                        <ul>
+                            <li>
+                                <b>flex-grow:</b> Number specifying how much the item will grow relative to the rest of the flex items (to occupy the empty space).
+                            </li>
+                            <li>
+                                <b>flex-shrink:</b> Number specifying how much the item will shrink relative to the rest of the flex items (if necessary).
+                            </li>
+                            <li>
+                                <b>flex-basis:</b> Determines the initial length/size for an item or items before the empty space is distributed between them.
+                            </li>
+                        </ul>
+                    <p class="flexbox-info-txt">
+                        Here are some different 'flex:' values and their meaning:
+                        <ol>
+                            <li><b>'0 1 auto' (default):</b> doesn't allow the item to grow, only shrink</li>
+                            <br>
+                            <li id="flexshorthand-auto"><b>'auto':</b> the same as writing '1 1 auto' which allows the item to grow as well as shrink, meaning larger items will occupy more space because each item stretches to fit its content.</li>
+                            <br>
+                            <li><b>'none':</b> the same as writing '0 0 auto' which means the item doesn't grow or shrink. </li>
+                        </ol>
+                    </p>
+                    <br>
+
+                    Here each item has a different 'flex: property' value (try resizing the web browser to notice how they items change or don't change size): <br><br>
+                    Item #1 = none (no growing or shrinking, stays as wide as the content); <br>
+                    Item #2 = '2 1 auto' (it grows x2 relative to the other items); <br>
+                    Item #3 = auto (grows and shrinks); <br>
+                    Item #4 = '1 1 200px' (grows and shrinks but has a default size of 200px). <br><br>
+                    <div class="flexbox-container fbc11">
+                        <p id="flex-1">Item 1</p>
+                        <p id="flex-2">Item 22</p>
+                        <p id="flex-3">Item 333</p>
+                        <p id="flex-4">Item 4444</p>
+                    </div>
+                    <br>
+
+                    <p>
+                        The sizing in flexbox can be a little confusing, so here's a link to a <b><a href="https://www.smashingmagazine.com/2018/09/flexbox-sizing-flexible-box/#working-out-the-size-of-a-flex-item" target="_blank">useful article</a></b> which better explains how the flexbox sizing works for items and why.
+                    </p>
+
+        </section>
+
+        <br><br>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@305&display=swap" rel="stylesheet">
+    <title>Grid</title>
+</head>
+<body class="grid-body">
+
+    <div class="stickynav">
+        <ul class="stickynav__ul">
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#display:grid-section">display: grid</a>
+          </li>
+          <li>
+            <p class="stickynav-separator">New Grid Terminology</p>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-lines-section">Grid Lines</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-tracks-section">Grid Tracks </a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-cells-section">Grid Cells</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-area-section">Grid Area</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#gaps-section">Gaps</a>
+          </li>
+          <li>
+            <p class="stickynav-separator">Creating a Basic Grid</p>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-template-columns/rows-properties">grid-template-columns/rows: properties</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-template-shorthand-property">grid-template: shorthand property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-auto-columns/rows-property">grid-auto-columns/rows: properties</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-auto-flow-property">grid-auto-flow: property </a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-gap-properties">Grid Gap Properties</a>
+          </li>
+          <li>
+            <p class="stickynav-separator">Other Grid Related Features</p>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#fraction-unit-section">Fraction Unit (fr)</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#repeat-notion-section">repeat( ) notion</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#keyword-size-values-section">Keyword Size Values</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#autofill-and-autofit-section">auto-fill & auto-fit keyword values</a>
+          </li>
+          <li>
+            <p class="stickynav-separator">Container-specific Properties</p>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#terms-explainer-section">Terms Explainer</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#justify-content-section">justify-content: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#justify-items-section">justify-items: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#justify-self-section">justify-self: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#align-content-section">align-content: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#align-items-section">align-items: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#align-self-section">align-self: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#place-content-shorthand-section">place-content: shorthand property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#place-items-shorthand-section">place-items: shorthand property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#place-self-shorthand-section">place-self: shorthand property</a>
+          </li>
+          <li>
+            <p class="stickynav-separator">Item-specific Properties</p>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-column-start/end-section">grid-column-start/end: properties</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-column-shorthand-section">grid-column: shorthand property </a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-row-start/end-section">grid-row-start/end: & grid-row: shorthand properties</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#gridcolumn-and-gridrow-section">grid-column: & grid-row: properties together</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#naming-grid-lines-section">Naming Grid Lines</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-area-shorthand-section">grid-area: shorthand property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#grid-template-area-and-grid-area-section">grid-template-area: & grid-area: properties together</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#order-section">order: property</a>
+          </li>
+          <li class="stickynav__li stickynav__li--purple">
+            <a href="#zindex-section">Overlapping & Z-index</a>
+          </li>
+        </ul>
+    </div>
+
+
+
+    <button id="flexbox-button">
+        <a href="./css_page.html">Back to CSS Notes Page</a>
+    </button>
+
+
+    <div class="grid-page-container">
+        <!-- REGULAR CONTAINER VS GRID CONTAINER -->
+
+        <section>
+
+            <!-- NORMAL CONTAINER  -->
+
+            <p class="flexbox-info-txt">
+                Just to reiterate from the flexbox section, this is what happens when we create a regular div container with some block-level paragraph elements inside it:
+            </p>
+
+                <div class="regular-container" >
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+                <br>
+
+            <p class="flexbox-info-txt" id="display:grid-section">
+                <b> We make a CSS block-level grid container by applying <b class="propertyBoldTxt">'display: grid'</b> to a < div > element which has some children elements (aka <b>items</b>) inside of it.</b> If we want the container to be inline-level we simply change this value to <span class="propertyBoldTxt">'display: inline-grid'</span>. When we do this, nothing actually changes on the web page! But now our grid container's items are ready to be moved about and transformed in many different ways. As you can see, this container looks the same as before:
+            </p>
+
+                <div class="grid-div">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+
+
+        </section>
+
+        <!-- NEW TERMINOLOGY -->
+
+        <section>
+        <br><br>
+
+            <h2 style="text-align:center;">New Grid Terminology</h2>
+
+
+        <p class="flexbox-info-txt">
+            Grid, being a completely new layout system, comes with its own terminology and theory that should be understood before understanding any of the grid properties themselves. These will mostly be demonstrated through images:
+        </p>
+
+        <div class="grid-text-image-div" id="grid-lines-section">
+            <p>
+                <b class="boldRedTxt" id="grid-line-id"><u>Grid Lines</u></b>
+                <br>
+                <b>A grid is made up of lines, which run horizontally and vertically.</b> If your grid has four columns, it will have five column lines including the one after the last column. <b>Lines are numbered starting from 1,</b> with the numbering following the reading direction. However, the lines are <b>also numbered negatively</b> starting from the opposite direction to the writing mode, starting with -1. We can see this in the highlighted sections of the second image.
+            </p>
+            <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/Sf8WXYmbhZkbhhPeqTrY.svg" alt="Grid Lines Image">
+            <img src="./images/grid-reverse-numbers.png" alt="Reverse Numbers">
+        </div>
+
+        <div class="grid-text-image-div" id="grid-tracks-section">
+            <p>
+                <b class="boldRedTxt"><u>Grid Tracks (Rows/Columns)</u></b>
+                <br>
+                <b>A track is the space between two grid lines.</b> A row track is between two row lines and a column track between two column lines. Essentially, they are the columns or rows of the grid. When we create our grid we create these tracks by assigning a size to them.
+            </p>
+            <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/7YkhnpgOQLrcaxjlKmlU.svg" alt="Grid Tracks Image">
+        </div>
+
+        <div class="grid-text-image-div" id="grid-cells-section">
+            <p>
+                <b class="boldRedTxt"><u>Grid Cells</u></b>
+                <br>
+                <b>A grid cell is the smallest space on a grid defined by the intersection of row and column tracks.</b> It's just like a table cell or a cell in a spreadsheet. If you define a grid and don't place any of the items they will automatically be laid out one item into each defined grid cell.
+            </p>
+            <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/lpiPCpW6fy4BjFOL6j77.svg" alt="Grid Cell Image">
+        </div>
+
+        <div class="grid-text-image-div" id="grid-area-section">
+            <p>
+                <b class="boldRedTxt"><u>Grid Area</u></b>
+                <br>
+                <b>Any number of grid cells together, surrounded by four grid lines.</b> Grid areas are created by causing an item to span over multiple tracks.
+            </p>
+            <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/pGmMokRfoVbLNxf1VXrF.svg" alt="Grid Area Image">
+        </div>
+
+        <div class="grid-text-image-div" id="gaps-section">
+            <p>
+                <b class="boldRedTxt"><u>Gaps</u></b>
+                <br>
+                <b>A gap between grid cells.</b> For sizing purposes these act like a regular track. You can't place content into a gap but you can span grid items across it.
+            </p>
+            <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/JNXSRH4j77loSB099E04.svg" alt="Grid Area Image">
+        </div>
+
+        <div class="grid-text-image-div">
+            <p>
+                Here you can see all the new terminology together in one image:
+            </p>
+            <img src="https://s1.o7planning.com/en/12541/images/52328368.png" alt="Grid Area Image">
+        </div>
+
+
+
+        </section>
+
+        <br>
+            <h2 style="text-align:center;">Creating a basic grid: rows, columns and gaps </h2>
+
+        <!-- GRID-TEMPLATE PROPERTIES  -->
+
+        <section>
+            <br><br>
+            <b class="extraNotesBoldTxt" id="grid-template-columns/rows-properties"><u>GRID-TEMPLATE PROPERTIES</u></b>
+
+            <p class="flexbox-info-txt">
+                Now that we're familar with new terms and grid-specific characteristics, let's get back to making a grid container and understand what are the different ways we can edit and customise our grid.
+            </p>
+
+            <p class="flexbox-info-txt" >
+                Now that we have a grid container with some items inside it - the amount we want to appear - <b>we tell CSS how to organise these items into <u>columns</u> by applying the <b class="propertyBoldTxt">'grid-template-columns:' property</b> and how to organise these items into <u>rows</u> by applying the <b class="propertyBoldTxt">'grid-template-rows:' property</b> followed by one or more size values.
+                <br><br>
+                The values we apply for each property define how many columns or rows we want in our container, and how big or small they are.</b>
+                For example, imagine we have six items in total in our grid container. If I want two rows of three items then we would apply the following CSS: <br><br>
+                <code style="font-size:smaller;">
+                    grid-template-columns: 100px 100px 100px (3 columns of these sizes)<br>
+                    grid-template-rows: 100px 100px (2 rows of these sizes)
+                </code>
+                <br><br>
+                Which looks like this (plus a bit of padding to see the container better):
+            </p>
+                    <div class="grid-div columns-rows">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                    </div>
+            <p class="flexbox-info-txt">
+                Notice if I change the amount of values for each property, the layout of the grid changes accordingly: <br><br>
+                <code style="font-size:smaller;">
+                    grid-template-columns: 100px 100px (2 columns) <br>
+                    grid-template-rows: 100px 100px 100px (3 rows)
+                </code>
+
+                <div class="grid-div columns-rows2">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+            </p>
+            <p class="flexbox-info-txt">
+                Or if I change the sizes, the appearance of the columns and rows changes accordingly: <br><br>
+                <code style="font-size:smaller;">
+                    grid-template-columns: 50px 150px 50px (3 columns)<br>
+                    grid-template-rows: 50px 100px (2 rows)
+                </code>
+
+                <div class="grid-div columns-rows3">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+            </p>
+            <p class="flexbox-info-txt" id="grid-template-shorthand-property">
+                <b>Instead of applying these properties individually to set our columns and rows, we can use the <b class="propertyBoldTxt">'grid-template:' shorthand property</b> to do it.</b> We write size values like before, but to differentiate between the columns and rows we <b>write a forward slash (/) in our value.</b> For example: <br><br>
+                <code style="font-size:smaller;">
+                    grid-template: 50px 150px 50px <i>(columns)</i> <b>/</b> 50px 100px <i>(rows)</i>
+                </code>
+            </p>
+            <p class="flexbox-info-txt">
+                <b>But what happens if, either by mistake or deliberately, we don't specify enough columns or rows for the items we have in our container?</b> In the example below, we have two columns defined and two rows defined for six items. That is, four items are told what to do, but what happens to the fifth and sixth items? <br><br>
+                <code style="font-size:smaller;">
+                    grid-template: 100px 100px (2 columns) / 150px 100px (2 rows)
+                </code>
+
+                <div class="grid-div grid-auto-rows">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+            <p class="flexbox-info-txt">
+                The fifth and sixth items are <u>automatically added onto the grid</u> (aka <em>'implicit grid tracks' </em>) and have the 'auto' value applied to them, meaning they stretch to match column or row sizes, but when possible will only stretch to fit their content. You can see that although boxes 5 and 6 have the same width as the other boxes, they don't have the same height.
+                <br><br id="grid-auto-columns/rows-property">
+                This is because we have other properties like the <b class="propertyBoldTxt">'grid-auto-rows:'</b> and <b class="propertyBoldTxt">'grid-auto-columns:' properties</b> <b>which define the size of automatically added-on grid items (those which aren't defined by the previous 'grid-template' properties) </b> - either in the row or column direction. By default the value is set to 'auto' but we can change this to a single size value, or multiple size values. Compare the third row of the grid below (value '75px') with that of the grid above:
+            </p>
+                <div class="grid-div grid-auto-rows2">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+            </p>
+
+            <p class="flexbox-info-txt" id="grid-auto-flow-property">
+                <b>We can specify <em>where</em> or <em>how</em> these automatically added-on grid items are added on to our grid</b> (and thus decide whether we need the 'grid-auto-row' or 'grid-auto-column' property) <b>by applying the <b class="propertyBoldTxt">'grid-auto-flow:'</b> property</b> <b><a href="./flexbox.html#flexdirectiontop" target="_blank">- similar to 'flex-direction:' for flexbox.</a></b>  <b>There are three values for this property:</b>
+            </p>
+                <ul style="font-size:1.1rem;">
+                    <li>
+                        <b class="propertyBoldTxt">row (default):</b> fills in each row in turn, adding new rows as necessary.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">column:</b> fills in each column in turn, adding new columns as necessary.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">dense:</b> tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later. That is, smaller items that come later in our HTML can be moved up in the grid to fill in any gaps that are present. <b>Note:</b> this only changes the visual order of items, not the actual order of items in our HTMl which is bad for usability reasons.
+                    </li>
+                </ul>
+
+
+        </section>
+
+
+        <!-- GRID GAPS -->
+
+        <section>
+            <br><br>
+            <b class="extraNotesBoldTxt"><u id="grid-gap-properties">GRID GAPS</u></b>
+
+            <p class="flexbox-info-txt">
+                <b>We can set gaps for our grid in either the row or column direction by using the <b class="propertyBoldTxt">'row-gap:'</b> or <b class="propertyBoldTxt">'column-gap:' properties.</b>, followed by a length unit as a value.</b> By default these properties have a value of '0' meaning any gaps are removed. For example:
+            </p>
+
+                <code>'row-gap: 2rem'</code>
+                <div class="grid-div columns-rows row-gap">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+                <br>
+
+                <code>'column-gap: 2rem'</code>
+                <div class="grid-div columns-rows col-gap">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+
+                <p class="flexbox-info-txt">
+                    <b>To set both the row and column gaps at the same time we can use the <b class="propertyBoldTxt">'gap:' shorthand property</b> followed by two size values (rows first, columns second).</b> For example:
+                </p>
+
+                <code>'grid-gap: 3rem (row) 1rem (column)'</code>
+                <div class="grid-div columns-rows grid-gap">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+
+        </section>
+
+        <br><br>
+            <h2 style="text-align:center;">Other Grid Related Features </h2>
+
+        <!-- FRACTION UNIT -->
+
+        <section id="fraction-unit-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>FRACTION 'fr' UNITS</u></b>
+
+            <p class="flexbox-info-txt">
+                Above we have been using the typical length units that we normally use in CSS (px, em, rem, %). However, using these length units for our grid can be troublesome when we start dividing out the space between the items and the content, or the item's content has different sizes, and starts requiring more complicated math.
+                <br><br>
+                For example, if we have four items and give each item a percentage value of 25% then the total length of the parent grid is 100% (of the web page or the space within the container). But if we give one of these items a length of 50% then the grid overflows the page/container because the other items still have a 25% length value, giving the parent grid a total length of 150% of the web page/container area. No adjustment happens between the items.
+                <br><br>
+                <b>With grid comes a new length unit: fraction or 'fr' which is defined as "a unit which represents a fraction of the remaining available space in the grid container." This unit is very versatile because it divides the space between the items proportionally and does all the hard calculations for us.</b>
+                <br><br>
+                For example, if we have the same four items and give each item a fractional unit value of '1fr' then what will happen is all the fractional unit values will be added together (1 + 1 + 1 + 1 = 4) and then the space will be distributed to each item according to the fractional unit value it holds. In this case, 1/4th of the space (or, 25%). If we make one of these items 2fr, then the new total value is 5 and the items will adjust their size accordingly with their fractional unit portion (or, 40% 20% 20% 20%). This is true even if we add grid gaps and adjust their size: <b>with fractional units, the grid items always automatically adjust in size for us.</b>
+                <br><br>
+                <b>Note 1: a fractional unit compromises of two things: a maximum and minimum value.</b> The <u>maximum</u> value is the value we give the item (e.g. 1fr, 2fr etc) and the <u>minimum</u> or 'auto' is the size of the content inside the item - that is, the item won't get smaller than the content inside it, however, it is possible to override this auto value.
+
+                <br><br>
+                <b>Note 2: it's possible combine fractional units with regular length units.</b> All that happens is the regular length units are assigned their space first, and then the rest of the space is proportionally distributed between the remaining fractional unit items. The examples below should help us understand this new length unit:
+            </p>
+
+                <code>grid-template-columns: 1fr 1fr 1fr 1fr (equal space distribution)</code>
+                <div class="grid-div gd1 fr-unit-1fr">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <br><br>
+                <code>grid-template-columns: 1fr 1fr 1fr 3fr (7 parts or 'fractions' in total, item four occupies 3 of these parts)</code>
+                <div class="grid-div gd1 fr-unit-3fr">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <br><br>
+                <code>grid-template-columns: 100px 1fr 2fr 200px (fixed length items mixed with fraction length items)</code>
+                <div class="grid-div gd1 fr-unit-mixed">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+
+        </section>
+
+
+        <!-- REPEAT() NOTION -->
+
+        <section id="repeat-notion-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>REPEAT( ) NOTION</u></b>
+
+            <p class="flexbox-info-txt">
+                Above in our first container we repeated '1fr' four times to establish four columns of equal length. <b>To avoid value repetition in our CSS code we can use the <b class="propertyBoldTxt">'repeat()' notion</b> as the value for our property where in the brackets we state 1) how many repetitions we desire of X length, 2) a comma, 3) the length we desire.</b> Again, we can mix this value with other normal CSS length unit values. See the examples below:
+            </p>
+
+            <code>grid-template-columns: repeat(4, 1fr)</code>
+                <div class="grid-div gd1 repeatnotion-1fr">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <br>
+
+            <code>grid-template-columns: repeat(4, 1fr) 100px 100px</code>
+            <div class="grid-div gd1 repeatnotion-1fr-100px">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+
+        </section>
+
+        <!-- OTHER GRID SIZE VALUES -->
+
+        <section id="keyword-size-values-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>OTHER GRID SIZE VALUES</u></b>
+
+            <p class="flexbox-info-txt">
+                <b>Below are six size values that we can give as the value for our columns/rows. The difference? They are not length units as such, but are keywords or functions() that we use to specify the item length in a different way.</b> The keywords can be used on other block or inline-block elements in CSS, not just grid elements. Below these four size values are listed out and explained in more detail:
+            </p>
+                <ul style="font-size: large;">
+                    <li>
+                        <b class="propertyBoldTxt">auto:</b> boxes will stretch to fill any additional space by default in the grid container. Similar to fraction units in their working but when put against fraction units, auto units win the battle for the remaining space over fraction units.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">min-content:</b> makes a box as small as it can be (using the widest bit of content as the reference point) without causing any overflow to occur (i.e. all the content still fits the box).
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">max-content:</b> makes a box as wide as is needed to contain all the content within the box(es), meaning it will overflow and not wrap if necessary.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">fit-content:</b> makes a box adjust its size according to the space it is given. If there is not much space it will default to the min-content size. If there is plenty of space it will default to the max-content size (but never more than this). Otherwise, it will simply use the space available.
+                    </li>
+                    <br>
+                    <p>
+                        ...The differences between the above sizing words can nicely been <b><a href="https://videos.ctfassets.net/f20lfrunubsq/3kg8wFAsiyBTVtn4MOdGqg/5b82bd15dff6e59cefeb4e2207bc2fa7/max-content-optim.mp4" target="_blank">seen here.</a></b>
+                        <br><br>
+                        <b>Note:</b> "extrinsic" sizing is when we apply a specific size value to a box whereas "intrinsic" sizing is when the content defines the size of the box.
+                    </p>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">fit-content():</b> this <u>function</u> will make the row/column as long as possible if there's enough space, otherwise, when it reaches the length unit given in the parenthesis it will stop there and start to wrap the content. Thus, the length unit stated is a 'maximum' length for the content.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">minmax():</b> this <u>function</u> allows us to define a size range for a row/column. We set a minimum size and a maximum size, meaning the row/column/item might be bigger than the minimum or smaller than the maximum size, but they will never surpass the limits we set. <b>Note:</b> it's possible to use the above keyword values within the minmax() function. For example: "minmax(min-content, 300px)" which means the item is as wide as the content, but at most 300 pixels.
+                        <br><br>
+                        <b>Note: we can use the minmax() function to make rows/columns (tracks) have an equal size.</b> Replace 1fr as a track size with minmax(0, 1fr) making the minimum size of the track 0 and not the min-content size. This frees up <em>all</em> the grid space to be distributed between the boxes equally.
+                    </li>
+                </ul>
+                <br>
+
+                <code>grid-template-columns: <b>auto</b>; grid-auto-flow: column;</code>
+                <div class="grid-div gd1 auto">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <br><br>
+
+                <code>grid-template-columns: repeat(4, <b>min-content);</b></code>
+                <div class="grid-div gd1 min-content">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <br><br>
+
+                <code>grid-template-columns: repeat(4, <b>max-content);</b> ...doesn't wrap!</code>
+                <div class="grid-div gd1 max-content">
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                </div>
+                <br><br>
+
+                If the above happens, this is when we would use the 'fit-content' keyword: <br>
+                <code>grid-template-columns: <b>fit-content</b>; grid-auto-flow: column;</code>
+                <div class="grid-div gd1 fit-content-key">
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                </div>
+                <br><br>
+
+
+                <code>grid-template-columns: <b>fit-content(120px) fit-content(160px) fit-content(180px) auto</b></code>
+                <div class="grid-div gd1 fit-content-func">
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                    <div>Lorem ipsum dolor.</div>
+                </div>
+                <br>
+
+                <code>grid-template-columns:<b> minmax(min-content, 300px) minmax(200px, 1fr) 150px;</b></code>
+                <div class="grid-div gd1 minmax-example">
+                    <div>Item is as wide as the content, but at most 300 pixels.</div>
+                    <div>Item with flexible width but a minimum of 200 pixels.</div>
+                    <div>Inflexible item of 150 pixels width.</div>
+                </div>
+
+        </section>
+
+        <!-- AUTO-FILL & AUTO-FIT -->
+
+        <section id="autofill-and-autofit-section"
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>AUTO-FILL & AUTO-FIT</u></b>
+
+            <p class="flexbox-info-txt">
+                While we're looking at different ways to size our boxes and new values for our CSS rule-sets, let's take a look at the values 'auto-fill' and 'auto-fit':
+                <br><br>
+                <b>If we don't want to specify the number of tracks, but instead we want to create as many as will fit in our container then we can achieve this with the 'repeat()' function and 'auto-fill' or 'auto-fit' keywords.</b>
+                <br><br>
+                <b>These keywords tell the browser to handle the track sizing and element wrapping <em>automatically</em> for us so that the elements will wrap when the width is not large enough to fit them in without any overflow.</b> Using the fraction unit also ensures that in case the width allows for a fraction of a track to fit but not a full track, that space will instead be distributed over the track or tracks that already fit, making sure we aren't left with any empty space at the end of the row.
+                <br><br>
+                So what's the exact difference between the two values?
+                <br><br>
+                <b  class="propertyBoldTxt">auto-fill =</b> automatically fills new space with more columns, even if those columns are empty, affecting the size of the original columns in the process.
+                <br><br>
+                <b  class="propertyBoldTxt">auto-fit =</b> automatically fits the current columns with content grow to fill the new space (in fact, new columns are being created here, but they're immediately collapsed so they don't take any space and the current columns grow to fill the space - see <b><a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/#:~:text=auto%2Dfit%20does,viewport%20width%20increases." target="_blank">here</a></b> for a visual representation of this).
+                <br><br>
+                Really, the difference between the two is only noticeable when the row is wide enough to fit more columns in it!
+                <br><br>
+                <b>Note:</b> in the web developer world, for CSS grid, people talk about 'implicit' and 'explicit' tracks. The difference is <b>'implicit' tracks are those generated automatically by the grid container and 'explicity tracks are ones that we the web developer define.</b>
+            </p>
+
+        </section>
+
+        <br>
+        <h2 style="text-align:center;">Back to Building a Grid</h2>
+
+        <!-- TERMS EXPLAINER BOX -->
+
+        <section id="terms-explainer-section">
+
+        <b class="boldRedTxt"><u>TERMS EXPLAINER</u></b>
+
+            <div class="flexbox-info-txt terms-explainer">
+                Before we continue, it's important that we understand certain terms because in comparing them we might end up a bit confused and also because when we use CSS Flexbox we also see these terms which confuse us even further.
+                <br><br><br>
+                <b class="boldRedTxt">"justify":</b><br>
+                    another way of saying <b>'inline-axis'</b> (X-axis). It's just a name, it doesn't mean anything in itself.
+                <br><br><br>
+                <b class="boldRedTxt">"align":</b><br>
+                    another way of saying <b>'block-axis'</b> (Y-axis). Again, it's just a name.
+                <br><br><br>
+                <b class="boldRedTxt">"-content":</b><br>
+                properties ending with this keyword <b>move the empty container space around the flex/grid items,</b> and thus move the whole block of items/content within the container simultaneously. However, this is <b>as long as the parent container is bigger than its children because empty space is <em>required</em> for these properties to work!</b> That's why it's quite normal to set the parent's height so that it's deliberately bigger than it would normally be, in order to achieve the effects delivered by the '-content' properties. <b>Note:</b> with these properties <b>the items themselves don't change in size (except stretch which makes items take up all free space)</b>, only the distribution or positioning of the items relative to parent container (due to the moving round of empty space).
+                <br><br><br>
+                <b class="boldRedTxt">"-items":</b><br>
+                properties ending with this keyword <b>look at each column or row track individually and tell the grid items where and how to line up within their individual cells, moving all the items together simultaneously within the track (except stretch which makes items take up all free space).</b> That is, the items line up in relation to each other.
+                <br><br>
+                <hr>
+                <br>
+                To avoid confusing with CSS Flexbox, <b>these are the properties that we can apply to CSS Grid:</b>
+                <ul>
+                    <li>
+                        <b class="propertyBoldTxt">'justify-content:'</b> (aka inline-axis-content) moves space around along the inline-axis and thus moves the whole block of items/content within the container.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">'justify-items:'</b> (aka inline-axis-items) aligns cell within individual cells/track along the inline-axis.
+                    </li>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">'justify-self</b> (aka inline-axis-self) is 'justify-item' but for one item and this property overrides the more general 'justify-items:' declaration.
+                    </li>
+                    <br>
+                    <hr>
+                    <br>
+                    <li>
+                    <b class="propertyBoldTxt">'align-content:'</b> (aka block-axis-content) the same as above but along the block-axis.
+                    </li>
+                    <br>
+                    <li>
+                    <b class="propertyBoldTxt">'align-items:'</b> (aka block-axis-items) the same as above but along the block-axis.
+                    </li>
+                    <br>
+                    <li>
+                    <b class="propertyBoldTxt">'align-self:'</b> (aka block-axis-item) is 'align-item' but for one item and this property overrides the more general 'align-items:' declaration.
+                    </li>
+                    <br>
+                    <hr>
+                    <br>
+                    <li>
+                        <b class="propertyBoldTxt">'place-content:'</b> the shorthand for both the 'justify-content:' and 'align-content' properties.
+                    </li>
+                    <li>
+                        <b class="propertyBoldTxt">'place-items:'</b> the shorthand for both the 'justify-items:' and 'align-items' properties.
+                    </li>
+                    <li>
+                        <b class="propertyBoldTxt">'place-self:'</b> the shorthand for both the 'justify-self:' and 'align-self' properties.
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <br>
+        <h2 style="text-align:center;">'justify-' (inline-axis) Grid Properties </h2>
+
+        <!-- JUSTIFY-CONTENT-->
+
+        <section id="justify-content-section">
+            <br>
+            <b class="extraNotesBoldTxt"><u>JUSTIFY-CONTENT</u></b>
+            <p class="flexbox-info-txt">
+                <b>The <b class="propertyBoldTxt">'justify-content:'</b> property, <b><a href="./flexbox.html#justify-content-flexbox-id" target="_blank">in the same way as justify-content for flexbox</a></b>, moves the empty container space around the grid items along the <u>inline-axis</u>, and as a result, moves the whole block of items/content within the container simultaneously.</b> This only works if the parent is bigger than the items (i.e., there's empty space to work with). Here the the items themselves don't change in size (except stretch which makes items take up all free space), only the distribution or positioning of the items relative to parent container (due to the moving round of empty space).
+                <br><br>
+                The values we can apply here are: <b> stretch (default) | start | center | end | space-between | space-around | space-evenly</b>.  In the following examples we will use a typical 3x3 grid layout with a bit of padding and a small grid-gap space, with all the containers having this property applied to them:<code style="font-size:medium;"> "grid-template-columns: auto auto auto;"</code>
+            </p>
+
+            <b class="propertyBoldTxt">stretch:</b> all the empty space is occupied by the items.
+            <div class="grid-div gjc gjc-stretch">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br>
+            <b class="propertyBoldTxt">start:</b> empty space placed to the right, pushing the items to the start of the container's inline axis.
+            <div class="grid-div gjc gjc-start">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br>
+            <b class="propertyBoldTxt">center:</b> empty space placed to the left and right, pushing the items towards the center of the inline-axis.
+            <div class="grid-div gjc gjc-center">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br>
+            <b class="propertyBoldTxt">end:</b> empty space placed to the left, pushing the items to the end of the container's inline axis.
+            <div class="grid-div gjc gjc-end">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br>
+            <b class="propertyBoldTxt">space-between:</b> the empty space is distributed between the items along the inline-axis.
+            <div class="grid-div gjc gjc-spacebetween">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br>
+            <b class="propertyBoldTxt">space-around:</b> the empty space is distributed around the items along the inline-axis, adding space before the first item and after the last one.
+            <div class="grid-div gjc gjc-spacearound">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br>
+            <b class="propertyBoldTxt">space-evenly:</b> the empty space is equally distributed between and after the items along the inline-axis.
+            <div class="grid-div gjc gjc-spaceevenly">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+        </section>
+
+
+        <!-- JUSTIFY-ITEMS-->
+
+        <section id="justify-items-section">
+        <br>
+        <b class="extraNotesBoldTxt"><u>JUSTIFY-ITEMS</u></b>
+
+        <p class="flexbox-info-txt">
+            <b>The <b class="propertyBoldTxt">'justify-items:'</b> property, unique to CSS Grid, affects the column tracks individually along the inline-axis, telling the grid items where and how to line up within their individual cells, moving all the items together simultaneously within the track (except stretch which makes items take up all free space).</b> That is, the items line up in relation to each other.
+            <br><br>
+            The values we can apply here are: <b> stretch (default) | start | center | end </b>. We will use the same container type as in the examples before in order to show the following examples:
+        </p>
+
+        <p class="flexbox-info-txt">
+        </code>
+        </p>
+
+        <b class="propertyBoldTxt">stretch (default):</b> items will stretch across the whole inline-axis.
+        <div class="grid-div ji ji-stretch">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+        <br><br>
+        <b class="propertyBoldTxt">start:</b> items will be positioned at the start of each column along the inline-axis, only occupying the required space for their content.
+        <div class="grid-div ji ji-start">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <figure style="border: 2px groove lightgray; padding: 1em; margin-top: 3em;">
+            <img src="./images/grid-box-disected.png" alt="Grid Box Inspector Tool" class="Image">
+            <figcaption style="text-align: center; font-style: italic;">Here we can see the box with the inspector tool showing us what's happening under the hood.</figcaption>
+        </figure>
+
+        <br><br>
+        <b class="propertyBoldTxt">center:</b> items will be positioned in the middle of each column along the inline-axis, only occupying the required space for their content.
+        <div class="grid-div ji ji-center">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+        <br>
+        <b class="propertyBoldTxt">end:</b> the opposite of 'start'
+        <div class="grid-div ji ji-end">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+        </section>
+
+        <!-- JUSTIFY-SELF-->
+
+        <section id="justify-self-section">
+        <br><br>
+        <b class="extraNotesBoldTxt"><u>JUSTIFY-SELF</u></b>
+
+        <p class="flexbox-info-txt">
+            <b>The <b class="propertyBoldTxt">'justify-self:'</b> property, unique to CSS Grid, is like the 'justify-items:' property but only for one individual cell, and overrides this latter property if it is applied in the CSS grid.</b> The same values as before can be applied:
+        </p>
+
+        <span>Notice how item 5 with the declaration 'justify-self:start' applied to it is aligned differently to the other items which have the 'justify-align: center' declaration applied to them.</span>
+        <div class="grid-div ji ji2 ji-center">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div style="justify-self: start;">'start'</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+        </section>
+
+        <br><br>
+        <h2 style="text-align:center;">'align-' (block-axis) Grid Properties</h2>
+
+        <!-- ALIGN-CONTENT-->
+
+        <section id="align-content-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>ALIGN-CONTENT </u></b>
+
+            <p class="flexbox-info-txt">
+                <b>The <b class="propertyBoldTxt">'align-content:'</b> property, <b><a href="./flexbox.html#align-content-flexbox-id" target="_blank">in the same way as align-content for flexbox</a></b>, moves the empty container space around the grid items along the <u>block-axis</u>, and as a result, moves the whole block of items/content within the container simultaneously.</b> This only works if the parent is bigger than the items (i.e., there's empty space to work with). Here the the items themselves don't change in size (except stretch which makes items take up all free space), only the distribution or positioning of the items relative to parent container (due to the moving round of empty space).
+                <br><br>
+                The values we can apply here are: <b> stretch (default) | start | center | end | space-between | space-around | space-evenly</b>.  In the following examples we will use a typical 3x3 grid layout with a bit of padding and a small grid-gap space, with all the containers having this property applied to them:<code style="font-size:medium;"> "grid-template-columns: auto auto auto; grid-template-rows: 100px 100px 100px;""</code>
+            </p>
+
+            <b class="propertyBoldTxt">stretch (default):</b> all the empty space is occupied by the items. <br>
+            <div class="grid-div gac gac-stretch">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+
+            <b class="propertyBoldTxt">start:</b> empty space placed at the bottom, pushing the items to the start of the container's block-axis.<br>
+            <div class="grid-div gac gac-start">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+
+            <b class="propertyBoldTxt">center:</b> empty space placed at the top and bottom, pushing the items towards the center of the block-axis. <br>
+            <div class="grid-div gac gac-center">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+
+            <b class="propertyBoldTxt">end:</b> empty space placed at the top, pushing the items to the end of the container's block-axis. <br>
+            <div class="grid-div gac gac-end">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+
+            <b class="propertyBoldTxt">space-between:</b> the empty space is distributed between the items along the block-axis. <br>
+            <div class="grid-div gac gac-spacebetween">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+
+            <b class="propertyBoldTxt">space-around:</b> the empty space is distributed around the items along the block-axis, adding space before the first item and after the last one. <br>
+            <div class="grid-div gac gac-spacearound">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+
+            <b class="propertyBoldTxt">space-evenly:</b> the empty space is equally distributed between and after the items along the block-axis. <br>
+            <div class="grid-div gac gac-spaceevenly">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+        </section>
+
+
+        <!-- ALIGN-ITEMS-->
+
+        <section id="align-items-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>ALIGN-ITEMS</u></b>
+
+            <p class="flexbox-info-txt">
+                <b>The <b class="propertyBoldTxt">'align-items:'</b> property, <b><a href="./flexbox.html#align-items-flexbox-id" target="_blank">in the same way as align-items for flexbox</a></b>, affects the column tracks individually along the <u>block-axis</u>, telling the grid items where and how to line up within their individual cells, moving all the items together simultaneously within the track (except stretch which makes items take up all free space).</b> That is, the items line up in relation to each other.
+                <br><br>
+                The values we can apply here are: <b> stretch (default) | start | center | end | baseline </b>. We will use the same container type as before for the following examples:
+            </p>
+
+            <b class="propertyBoldTxt">stretch (default):</b> items will stretch across the whole base-axis.
+            <div class="grid-div gai gai-stretch">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br><br>
+            <b class="propertyBoldTxt">start:</b> items are aligned at the start of the base-axis.
+            <div class="grid-div gai gai-start">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+            <figure style="border: 2px groove lightgray; padding: 1em; margin-top: 3em;">
+                <img src="./images/grid-align-items-inspector.png" alt="Grid Box Inspector Tool" class="Image">
+                <figcaption style="text-align: center; font-style: italic;">Here we can see the box with the inspector tool showing us what's happening under the hood.</figcaption>
+            </figure>
+
+            <br><br>
+            <b class="propertyBoldTxt">center:</b> items are aligned at the center of the base-axis.
+            <div class="grid-div gai gai-center">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br><br>
+            <b class="propertyBoldTxt">end:</b> items are aligned at the start of the base-axis.
+            <div class="grid-div gai gai-end">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br><br>
+            <b class="propertyBoldTxt">baseline:</b> items are aligned so that their text baselines align along a horizontal line, even if the item sizes are different.
+            <div class="grid-div gai gai-baseline">
+                <div class="tallbox" style="font-size: 100px;">1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div class="tallbox" style="font-size: 100px;">6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+        </section>
+
+
+        <!-- ALIGN-SELF-->
+
+        <section id="align-self-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>ALIGN-SELF</u></b>
+
+            <p class="flexbox-info-txt">
+                <b>The <b class="propertyBoldTxt">'align-self:'</b> property, <b><a href="./flexbox.html#align-self-flexbox-id" target="_blank">in the same way as align-self for flexbox</a></b>, is like the 'align-items:' property but only for one individual cell, and overrides this latter property if it is applied in the CSS grid.</b> The same values as before can be applied:
+                <br><br>
+                Here item #3 has been individually aligned to the end, item #4 to the center and #8 to the start of their individual column tracks in a container with a pre-defined height (400px), meaning they don't stretch like the other items do.
+            </p>
+
+            <div class="grid-div gai gai-stretch">
+                <div>1</div>
+                <div>2</div>
+                <div style="align-self: end;">3 with text</div>
+                <div style="align-self: center;">4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div style="align-self: start;">8</div>
+                <div>9</div>
+            </div>
+
+        </section>
+
+        <br><br>
+        <h2 style="text-align:center;">'place-' Shorthand Properties</h2>
+
+        <!-- PLACE-CONTENT-->
+
+        <section id="place-content-shorthand-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>PLACE-CONTENT (SHORTHAND)</u></b>
+            <p class="flexbox-info-txt">
+                <b>We can set the properties, <span class="propertyBoldTxt">'justify-content:'</span> and <span class="propertyBoldTxt">'align-content:'</span> at the same time using the <b class="propertyBoldTxt">'place-items:' shorthand property.</b></b> The first value sets 'align-content' and the second value sets 'justify-content'. For example: <br>
+                <code>'place-content: center end'</code>
+                <br><br>
+                <b>Note:</b> if the second value is omitted, the first value is assigned to both properties.
+            </p>
+
+            <code>place-content: end space-between;</code> <br><br>
+            <u>(align-content) end</u> = empty space placed at the top, pushing the items to the end of the container's block-axis (vertically). <br>
+            <u>(justify-content) space-between</u> = the empty space is distributed between the items along the inline-axis (horizontally).
+            <br><br>
+            <div class="grid-div place-content">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+            <figure style="border: 2px groove lightgray; padding: 1em; margin-top: 3em;">
+                <img src="./images/grid-place-content-inspector.png" alt="Grid Box Inspector Tool" class="Image">
+                <figcaption style="text-align: center; font-style: italic;">Here we can see the box with the inspector tool showing us what's happening under the hood.</figcaption>
+            </figure>
+
+
+    <br><br>
+
+        </section>
+
+        <!-- PLACE-ITEMS-->
+
+        <section id="place-items-shorthand-section">
+            <br>
+            <b class="extraNotesBoldTxt"><u>PLACE-ITEMS (SHORTHAND)</u></b>
+            <p class="flexbox-info-txt">
+                <b>We can set the properties, <span class="propertyBoldTxt">'justify-items:'</span> and <span class="propertyBoldTxt">'align-items:'</span> at the same time using the <b class="propertyBoldTxt">'place-items:' shorthand property.</b></b> The first value sets 'align-items' and the second value sets 'justify-items'. For example: <br>
+                <code>'place-items: start center'</code>
+                <br><br>
+                <b>Note:</b> if the second value is omitted, the first value is assigned to both properties.
+            </p>
+
+            <code>place-items: start center;</code>
+            <div class="grid-div place-items">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4 </div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+            <br>
+            <figure style="border: 2px groove lightgray; padding: 1em; margin-top: 3em;">
+                <img src="./images/grid-place-items-inspector.png" alt="Grid Box Inspector Tool" class="Image">
+                <figcaption style="text-align: center; font-style: italic;">Here we can see the box with the inspector tool showing us what's happening under the hood.</figcaption>
+            </figure>
+
+
+        <br><br>
+
+        </section>
+
+        <!-- PLACE-SELF-->
+
+        <section id="place-self-shorthand-section">
+            <br>
+            <b class="extraNotesBoldTxt"><u>PLACE-SELF (SHORTHAND)</u></b>
+            <p class="flexbox-info-txt">
+                <b>We can set the properties, <span class="propertyBoldTxt">'justify-self:'</span> and <span class="propertyBoldTxt">'align-self:'</span> at the same time using the <b class="propertyBoldTxt">'place-self:' shorthand property.</b></b> The first value sets 'align-self' and the second value sets 'justify-self'. For example: <br>
+                <code>'place-self: baseline end'</code>
+                <br><br>
+                <b>Note:</b> if the second value is omitted, the first value is assigned to both properties.
+
+
+                <b>We can set the properties, <span class="propertyBoldTxt">'justify-items:'</span> and <span class="propertyBoldTxt">'align-items:'</span> at the same time using the <b class="propertyBoldTxt">'place-items:' shorthand property.</b></b> The first value sets 'align-items' and the second value sets 'justify-items'. For example: <br>
+                <code>'place-items: start center'</code>
+                <br><br>
+                <b>Note:</b> if the second value is omitted, the first value is assigned to both properties.
+            </p>
+
+            <div class="grid-div place-self">
+                <div>1</div>
+                <div  style="place-self: start stretch;"><code>start stretch</code></div>
+                <div>3</div>
+                <div>4 </div>
+                <div style="place-self: center;"><code>center</code></div>
+                <div>6</div>
+                <div>7</div>
+                <div style="place-self: baseline end ;"><code> baseline end</code></div>
+                <div>9</div>
+            </div>
+            <p class="flexbox-info-txt">
+                Here we have three items which are affected by 'place-self:' property.
+                <ul>
+                    <li>Item 3: item is are aligned at the start of the base-axis, and stretches across the whole inline-axis.</li>
+                    <br>
+                    <li>Item 5: item is aligned in the center of both the base and inline-axis.</li>
+                    <br>
+                    <li>Item 8: items is aligned with the horizontal text baseline of the other boxes and is positioned at the end of each column along the inline-axis, only occupying the required space for its content.</li>
+                </ul>
+        <br>
+
+        </section>
+
+        <br>
+        <h2 style="text-align:center;">Item Specific Properties</h2>
+
+        <!-- GRID-COLUMN-START/END -->
+
+        <section id="grid-column-start/end-section">
+        <br>
+        <b class="extraNotesBoldTxt"><u>GRID-COLUMN-START/END</u></b>
+        <p class="flexbox-info-txt">
+            If you remember from the beginning of this page in the section about <b><a href="#grid-line-id">grid lines</a></b> we learnt that a <b>grid is made up of lines, which run horizontally and vertically.</b> If your grid has four columns, it will have five column lines including the one after the last column. <b>Lines are numbered starting from 1,</b> with the numbering following the reading direction. However, the lines are <b>also numbered negatively</b> starting from the opposite direction to the writing mode, <b>starting with -1.</b> See the bottom of the image below:
+        </p>
+        <div class="grid-text-image-div">
+            <img src="./images/grid-reverse-numbers.png" alt="Reverse Numbers">
+        </div>
+        <p class="flexbox-info-txt">
+            Utilising these grid lines,<b>we can use the <b class="propertyBoldTxt">'grid-column-start:' property</b> to tell an item on which column line to start from.</b> Here we can use <b>three different values:</b>
+            <ol>
+                <li><b>(column-line number)</b>: for example '1', '2', '3'. </li>
+                <br>
+                <li><b>span</b>: specifies the number of columns the item will span</li>
+                <br>
+                <li><b>auto (default)</b>: the item will be placed following the flow. </li>
+            </ol>
+            You will notice in the following examples that <b>by default grid items only span one column.</b>
+        </p>
+        <br>
+        For comparison, this is our starting grid:
+        <div class="grid-div grid-col">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <p class="flexbox-info-txt">
+            Now in this following grid container, item #1 has applied to it "grid-column-start: 3" and item #7 "grid-column-start: 2" and you can see how effectively item or box 1 is now positioned where box 3 was before because it starts from the 3rd grid column line (counting from the grid's left-side border) and the other boxes have been moved along in the grid container as a result of that. Additionally item #7 is now positioned on a fourth row that wasn't originally there before in the middle column because it starts from the 2nd grid column.
+        </p>
+        <div class="grid-div grid-col">
+            <div id="gcs1"><code>(1) grid-column-start: 3</code></div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div id="gcs2"><code>(7) grid-column-start: 2</code></div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <p class="flexbox-info-txt">
+            <b>Notice how if we place an item in a column outside the grid that doesn't actually exist in our original design (in this case, 'grid-column-start: 4'), CSS Grid still places it in the position we specify and adapts the grid automatically.</b>
+        </p>
+        <div class="grid-div grid-col">
+            <div id="gcs3"><code>(1) grid-column-start: 4</code></div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4 </div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+        <br>
+        <p class="flexbox-info-txt">
+            We can achieve a similar effect by using the polar opposite of the 'grid-column-start:' property by using the <b class="propertyBoldTxt">'grid-column-end:' property</b>. This <b>tells an item on which column line to end,</b> but again, the item will only span one column by default. So this is <b>like 'grid-column-start:' but going the other way.</b> Again, we have the same three values we can apply to this property.
+        </p>
+        <p class="flexbox-info-txt">
+            Notice how in this grid below the item #1 is in the third grid-column because we have applied to it "grid-column-end: 4". That means, the item will end on the fourth grid line, which happens to be the right-hand border line of our grid. That is why it is positioned here.
+        </p>
+        <div class="grid-div grid-col">
+            <div style="grid-column-end: 4;"><code>(1) grid-column-end:4</code></div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4</div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <p class="flexbox-info-txt">
+            <b> We can extend our item across multiple columns by <u>combining these two above properties together!</u></b>
+        </p>
+        <div class="grid-div grid-col">
+            <div style="grid-column-start: 1; grid-column-end: 4;"><code>(1) grid-column-start: 1; grid-column-end: 4</code></div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4</div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <p class="flexbox-info-txt">
+            <b>Note: our 'end' property doesn't always have to have a bigger value than our 'start' property.</b> By swapping the above values we achieve the same result!
+        </p>
+        <div class="grid-div grid-col">
+            <div style="grid-column-start: 4; grid-column-end: 1;"><code>(1) grid-column-start: 4; grid-column-end: 1</code></div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4</div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <p class="flexbox-info-txt">
+            <b>Note: we can start from the right-hand-side of our grid and count using the negative grid line values to set the item column span.</b> Again, we are going to achieve the same result via different values.
+        </p>
+        <div class="grid-div grid-col">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4</div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div style="grid-column-start: -1; grid-column-end: -4;"><code>(9) grid-column-start: -1; grid-column-end: -4</code></div>
+        </div>
+        <p class="flexbox-info-txt">
+            As mentioned earlier, we don't just have to use grid-line numbers as values for these properties. <b>We can use the 'span' value followed by a number to indicate how many columns we want to be spanned across our grid container.</b> We can use this value on just one of the above properties e.g. 'grid-column-start: span 2' or we can specify and start or end position and then indicate how many columns we want the item to span from there.
+        </p>
+        <div class="grid-div grid-col">
+            <div style="grid-column-start: span 2;">'span 2'</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4</div>
+            <div>5 text</div>
+            <div>6</div>
+            <div>7 with text</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <br><br>
+
+        Notice here how item #7 starts on the third grid-line column and spans 3 columns from there. CSS Grid automatically adds in other columns to accommodate this and orders the other items accordingly.
+        <div class="grid-div grid-col">
+            <div>1</div>
+            <div>2</div>
+            <div>3 with text</div>
+            <div>4</div>
+            <div>5 text</div>
+            <div>6</div>
+            <div style="grid-column-start: 3; grid-column-end: span 3"><code>grid-column-start: 3; grid-column-end: span 3</code></div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+
+
+
+        </section>
+
+        <!-- GRID-COLUMN (SHORTHAND) -->
+
+        <section id="grid-column-shorthand-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>GRID-COLUMN (SHORTHAND)</u></b>
+            <p class="flexbox-info-txt">
+                Writing the above two properties each time can get tiring, fortunately we have the <b class="propertyBoldTxt">'grid-column:' shorthand property</b> which combines 'grid-column-start:' and '-end' for us. <b>The start and end values are separated by a slash (/).</b> For example: <code>grid-column: 2 / 4</code> or <code> grid-column: span 3 / 5</code>
+            </p>
+
+            <div class="grid-div gc-color grid-col">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div style="grid-column: 1 / 4 ;"><code>grid-column: 1 / 4</code></div>
+                <div>5 text</div>
+                <div>6</div>
+                <div></div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+        </section>
+
+
+        <!-- GRID-ROW-START/END, GRID-ROW (SHORTHAND) -->
+
+        <section id="grid-row-start/end-section">
+            <br><br>
+            <b class="extraNotesBoldTxt"><u>GRID-ROW-START, GRID-ROW-END & GRID-ROW (SHORTHAND)</u></b>
+            <p class="flexbox-info-txt">
+                Now that the above has been explained, there really isn't any need to explain the following properties: <b class="propertyBoldTxt">'grid-row-start:', 'grid-row-end:', 'grid-row:' shorthand</b> because they <b>are exactly the same as the above 'grid-column...' properties but along the base-axis (vertical-axis).</b>
+            </p>
+
+            <div class="grid-div grid-row">
+                <div style="grid-row: 1 / 5;"><code>(1) grid-row: 1 / 5</code></div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4</div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+            <br><br>
+            <div class="grid-div grid-row">
+                <div>1</div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4</div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div style="grid-row-start: span 3;"><code>(9) grid-row-start: span 3</code></div>
+            </div>
+
+            <br><br>
+            <div class="grid-div grid-row">
+                <div style="grid-row-end: -1;"><code>(1) grid-row-end: -1</code></div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4</div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+        </section>
+
+        <!-- COMBINING GRID-COLUMN & GRID-ROW -->
+
+        <section id="gridcolumn-and-gridrow-section">
+        <br><br>
+        <b class="extraNotesBoldTxt"><u>COMBINING GRID-COLUMN & GRID-ROW (SHORTHANDS)</u></b>
+        <p class="flexbox-info-txt">
+            <b>We can combine the two above shorthands to position an item in a specific spot within our grid container, or to cover specific areas.</b>
+        </p>
+
+        <br>
+            Here we have placed item 1 in the opposite corner of the grid.
+            <div class="grid-div grid-row gc-color2">
+                <div style="grid-column: 3 / 4; grid-row: 3 / 4;"><code>(1) grid-column: 3/4; grid-row: 3/4;</code></div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4</div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+
+            <br><br>
+            Notice how the area of item #1 changes the layout of the grid and the other items in relation to it.
+            <div class="grid-div grid-row gc-color2">
+                <div style="grid-column: 1 / 3; grid-row: 1 / 3;"><code>(1) grid-column: 1/3; grid-row: 1/3;</code></div>
+                <div>2</div>
+                <div>3 with text</div>
+                <div>4</div>
+                <div>5 text</div>
+                <div>6</div>
+                <div>7 with text</div>
+                <div>8</div>
+                <div>9</div>
+            </div>
+
+
+            <p class="flexbox-info-txt">
+                <b>Now we have this knowledge, we can create a basic grid layout which we could easily utilise in one of our web pages.</b>
+                <br><br>
+                The following grid has these properties applied to it: <br>
+                <code> grid-template-columns: 200px 1fr 1fr; <br>
+                    grid-template-rows: 80px 1fr 1fr 100px; <br>
+                    grid-gap: 1rem; </code>
+            </p>
+
+            <div class="container">
+                <div class="header"><b> header</b> <br> <code>grid-row: 1 / 2; grid-column: 1 / 4;</code></div>
+                <div class="sidebar"><b> sidebar</b> <br> <code>grid-row: 2 / 4; grid-column: 1 / 2;</code></div>
+                <div class="content-1"><b> Content-1</b> <br> <code> grid-row: 2 / 3; grid-column: 2 / 4; </code></div>
+                <div class="content-2"><b> Content-2</b> <br> <code> grid-row: 3 / 4; grid-column: 2 / 3; </code></div>
+                <div class="content-3"><b> Content-3</b> <br> <code> grid-row: 3 / 4; grid-column: 3 / 4;</code></div>
+                <div class="footer"><b>footer </b> <br> <code> grid-row: 4 / 5; grid-column: 1 / 4;</code></div>
+            </div>
+
+        </section>
+
+        <!-- NAMING GRID-LINES -->
+
+        <section id="naming-grid-lines-section">
+            <br><br><br>
+            <b class="extraNotesBoldTxt"><u>NAMING GRID-LINES</u></b>
+            <p class="flexbox-info-txt">
+                <b>We don't always have to use numbers to specify areas of our grid. We can also use custom-made names.</b> However, I won't go into this in great detail here as for now using grid-line numbers is enough. Here are some links to further learn about the topic:
+                <ul>
+                    <li><a href="https://mozilladevelopers.github.io/playground/css-grid/09-named-lines" target="_blank">Mozilla Developers</a></li>
+                    <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-area:~:text=But%20you%20can%20choose%20to%20explicitly%20name%20the%20lines.%20Note%20the%20bracket%20syntax%20for%20the%20line%20names%3A" target="_blank">CSSTricks</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Hxk2dqkOa90&list=PL-GJ2ovkUZSFWFbBAt4KTFh_WuHkYJEC8&index=14" target="_blank">CodeLab Youtube Video</a></li>
+                </ul>
+
+        </section>
+
+        <!-- GRID-AREA (SHORTHAND) -->
+
+        <section id="grid-area-shorthand-section">
+        <br><br><br>
+        <b class="extraNotesBoldTxt"><u>GRID-AREA (SHORTHAND)</u></b>
+        <p class="flexbox-info-txt">
+            <b>The <b class="propertyBoldTxt">'grid-area:' property</b> is a shorthand property for these properties (in this order): 'grid-row-start:', 'grid-column-start:', 'grid-row-end:' and 'grid-column-end:'.</b> For example,
+        </p>
+
+        <div class="grid-div grid-area">
+            <div><code>1</code></div>
+            <div>2</div>
+            <div id="grid-area-shorthand"><code>grid-area: 1 / 3 / 5 / 4;</code></div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+
+        </section>
+
+        <!-- COMBINING GRID-TEMPLATE-AREA & GRID-AREA -->
+
+        <section id="grid-template-area-and-grid-area-section">
+            <br><br><br>
+            <b class="extraNotesBoldTxt"><u>COMBINING GRID-TEMPLATE-AREA & GRID-AREA</u></b>
+            <p class="flexbox-info-txt">
+                <b>Using the <b class="propertyBoldTxt">'grid-template-area:'</b> and <b class="propertyBoldTxt">'grid-area:' properties </b> is a more visual way of designing and representing our grid container layout within CSS.</b> That is, it produces the exact same result as the above properties of 'grid-column' and 'grid-row', but <b>we don't use grid line numbers.</b>
+                <br><br>
+                <b>Here is the process we need in order to create a grid layout using these new properties;</b>
+                <ol id="markerbold">
+                    <li> We define our required <b class="propertyBoldTxt">'grid-template-columns:' & 'grid-template-rows</b> properties in order to create the grid layout <br>
+                        e.g. 'grid-template: repeat (4, 1fr) (columns) / repeat (4, 100px); (rows)'</li>
+                    <br>
+                    <li> We create our grid layout using the <b class="propertyBoldTxt">'grid-template-areas:'</b> property within the relevant grid container, <u>the values of which can be:</u>
+                        <br><br>
+                        <ol>
+                            <li> a word or letter </li>
+                            <li> a full stop (.) meaning an empty grid cell</li>
+                            <li> 'none' meaning no grid areas are defined</li>
+                        </ol>
+                    </li>
+                    <br><br>
+                    For example, imagine in our heads we want to create this grid layout:
+                    <br><br>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/dddgrid-template-areas.svg" alt="Basic Grid Layout" class="Imagefifty">
+                    <br><br>
+                    To create this design in CSS all we have to do is visually represent this with our values in our 'grid-template-area:' property declaration. For example:
+                    <br><br>
+                    <code style="font-size: 1.5em ;"> <pre>
+                        grid-template-area:
+                        "header  header header header"
+                        "main    main   .      sidebar"
+                        "footer  footer footer footer";
+                    </pre> </code>
+                    <b>Note 1:</b> each new row must be wrapped in quote marks and have the same number of cells as the row above it. <br><br>
+                    <b>Note 2:</b> you can use as many full stops to declare a single empty cell as you like, but as soon as you type a space  you are now referencing a new cell.<br><br>
+                    <b>Note 3:</b> the lined up spacing is optional, but it makes it easier to visualise our container's end result.
+                    <br><br><br><br>
+                    <li>
+                        <b>Now we need to apply the <b class="propertyBoldTxt">'grid-area:' property</b> to our individual items in order to match up our defined 'grid-template-areas:' values to our items and create our previsioned layout.</b> As we can see in the container, we only have four items, and so we only need to style four items too. All we need to do now is give each item an id or class so we can style them, and then apply the 'grid-area:' property with a value that matches the given values from our 'grid-template-area:' property. <b>This property essentially says: "This item's area will match with the visual area of X from the grid-template-area property.</b> For example:
+                        <code style="font-size: 1.3em ;"> <pre> <br>
+                            .item-a {
+                                grid-area: <u>header</u>;
+                            }
+                            .item-b {
+                                grid-area: <u>main</u>;
+                            }
+                            .item-c {
+                                grid-area: <u>sidebar</u>;
+                            }
+                            .item-d {
+                                grid-area: <u>footer</u>;
+                            }
+                        </pre> </code>
+                    </li>
+                </ol>
+            </p>
+            <p class="flexbox-info-txt">
+                All this will result in the following grid:
+            </p>
+
+            <div class="grid-template-area-div">
+                <div id="item-a">Header</div>
+                <div id="item-b">Main</div>
+                <div id="item-c">Sidebar</div>
+                <div id="item-d">Footer</div>
+            </div>
+            <br><br>
+
+        </section>
+
+        <!-- ORDER -->
+
+        <section id="order-section">
+            <br><br><br>
+            <b class="extraNotesBoldTxt"><u>ORDER</u></b>
+            <p class="flexbox-info-txt">
+                If grid items aren't explicitly placed with grid-area, grid-column, grid-row, etc., they are automatically placed according to their order in the HTML source code. <b>We can override this using the <b class="propertyBoldTxt">'order:' property</b>,</b> which is one of the advantages of grid over a table-based layout. By default, all grid items have an order of 0, but this can be set to any positive or negative value, similar to z-index. <b>Bigger numbers go after smaller numbers.</b>
+                <br><br>
+                In the example below, in the brackets you can see in what order the items are written in the HTML code. We can also see what order number has been applied to these items, and comparing the two, notice how the visual order of the items has changed:
+            </p>
+
+            <div class="grid-div grid-order">
+                <div style="order: 0;">(1) Order 0</div>
+                <div style="order: 1;">(2) Order 1</div>
+                <div style="order: 0">(3) Order 0</div>
+                <div style="order: 2">(4) Order 2</div>
+                <div style="order: 0;">(5) Order 0</div>
+                <div style="order: 0;">(6) Order 0</div>
+                <div style="order: 3;">(7) Order 3</div>
+                <div style="order: 0;">(8) Order 0</div>
+                <div style="order: 0;">(9) Order 0</div>
+            </div>
+
+            <p class="flexbox-info-txt">
+                <b>Note:</b> Although the visual order has changed, the HTML source code has not and so this property is not very practical for certain website users.
+            </p>
+
+        </section>
+
+        <!-- OVERLAPPING ITEMS & Z-INDEX -->
+
+        <section id="zindex-section">
+            <br><br><br>
+            <b class="extraNotesBoldTxt"><u>OVERLAPPING ITEMS & Z-INDEX</u></b>
+            <p class="flexbox-info-txt">
+                One thing that really differentiates CSS Grid from regular HTML tables or even Flexbox is <b>the ability to stack grid items on top of each other, and then choose in what order those stacked items appear by using the <b class="propertyBoldTxt">'z-index:' property</b>.</b> It isn't easy to do in the first place as grid presumes by default that you don't want to overlap your items, but it can be done! For example, here's our starting grid with slightly transparent items.
+            </p>
+
+                Here we have created a grid with 5 columns (5) x 1fr), a 10px grid gap, a border and some padding. The even numbered items have one color and the odd numbered items have another color by applying ':nth-child(...)'.
+                <div class="grid-div grid-overlap">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                </div>
+                <br><br>
+
+                In this container below we have now have applied some specific CSS to each item, telling them where their start and ending points are in regards to the inline-axis (columns) and base-axis (rows).
+                <pre>
+                .grid-div.grid-overlap2 > div:nth-child(1) {
+                    grid-column: 1 / 3;
+                    grid-row: 1 / 3;
+                }
+                .grid-div.grid-overlap2 > div:nth-child(2) {
+                    grid-column: 2 / 4;
+                    grid-row: 2 / 4;
+                }
+                .grid-div.grid-overlap2 > div:nth-child(3) {
+                    grid-column: 3 / 5;
+                    grid-row: 3 / 5;
+                }
+                .grid-div.grid-overlap2 > div:nth-child(4) {
+                    grid-column: 4 / 6;
+                    grid-row: 4 / 6;
+                }
+                </pre>
+                Notice the space each item now occupies and also how they overlap each other with the top left corner overlapping the bottom right corner of the previous item. Moreover, we have automatically added a column on to our container due to item 4 being situated in 'column 6'.
+                <div class="grid-div grid-overlap2">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                </div>
+                <br><br>
+
+                Now, changing the z-index number of each item, we can change which item is layered on top, and which below. The higher z-index number always displays above lower z-index numbers.
+                <div class="grid-div grid-overlap3">
+                    <div>1 (z-index: 4)</div>
+                    <div>2 (z-index: 3)</div>
+                    <div>3 (z-index: 2)</div>
+                    <div>4 (z-index: 1)</div>
+                </div>
+                <br><br>
+
+                In the real world, this ability to overlap items could be very useful for overlapping text onto an image.
+                    <div class="stacking-grid">
+                        <h1 class="stacking-grid__header-text">Hello world! This is me!</h1>
+                        <img class="stacking-grid__image" src="./images/aboutmephoto.jpg" alt="Picture of me">
+                    </div>
+                <br><br>
+
+                Here is the source code: <pre><code>
+
+                    HTML
+                    < div class="stacking-grid">
+                        < h1 class="stacking-grid__header-text">Hello world! This is me!< /h1 >
+                        < img class="stacking-grid__image" src="images/aboutmephoto.jpg" alt="Picture of me">
+                    < /div>
+
+                    .stacking-grid {
+                        display: grid;
+                    }
+                    .stacking-grid h1, img {
+                        grid-column: 1 / -1;
+                        grid-row: 1 / 2;
+                    }
+                    .stacking-grid__header-text {
+                        color: white;
+                        place-self: center;
+                        font-size: 3em;
+                    }
+                    .stacking-grid__image {
+                        z-index: -1;
+                        max-height: 100%;
+                        max-width: 100%;
+                    }
+                </code></pre>
+                <p class="flexbox-info-txt">
+                    <b><a href="https://mastery.games/post/overlapping-grid-items/#Control-the-Stack-with-Z-Index" target="_blank">Following this link here</a></b> we can find a very interesting article which explains how to create a magazine type layout using CSS grid.
+                    <br><br>
+                    Towards the end of the article it says one thing which is interesting to note for our future Grid designs:
+                    <blockquote>
+                        "One interesting thing to check out is that quote box that's overlapping the game image. It's positioned into the 2nd row, 4th column. But we used position: relative to shift it up and to the left to break out of the grid a bit, just like it does in the magazine. Keep an eye out for this. <i>Oftentimes layouts that don't appear to be a grid actually are, just with some clever item shifting.</i>"
+                    </blockquote>
+                </p>
+                <br><br>
+        </section>
+
+        <br><br>
+
+    </div>
+
+</body>
+</html>

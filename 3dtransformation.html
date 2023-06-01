@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@305&display=swap" rel="stylesheet">
+    <title>3D Transformations</title>
+</head>
+<body class="grid-body" style="background-color:white; padding: 0 300px;">
+    <button id="flexbox-button">
+        <a href="./css_page.html">Back to CSS Notes Page</a>
+    </button>
+
+    <!-- CARD FLIP PROJECT -->
+
+    <section>
+        <h2>Card Flip Project</h2>
+            <p class="flexbox-info-txt">
+                The first project we are going to build to practice and demonstrate 3D transformations is a card flip. This is our HTML:
+            </p>
+            <pre><code>
+            < div <b>class="scene"></b>
+                < div <b>class="card"></b>
+                    < div <b>class="card__face</b> card__face--front">front< /div >
+                    < div <b>class="card__face</b> card__face--back">back< /div >
+                < /div >
+            < /div >
+            </code></pre>
+            <p class="flexbox-info-txt">
+                The first div <b class="extraNotesBoldTxt">'.scene'</b> will house the 3D space. <br>
+                The second div <b class="extraNotesBoldTxt">'.card'</b> acts as the 3D object. <br>
+                Two separate <b class="extraNotesBoldTxt">'.card__face'</b> div elements are used for the card faces. <br>
+                <br>
+                <b>This is the usual setup for 3D transformations (also making it easier to understand what's going on with our 3D object: <br> <br>
+                     1) a 3D space/scene container <br>
+                     2) a 3D object container <br>
+                     3) the 3D object individual parts/faces. <br></b>
+                <br>
+                Now we're ready to make our 3D CSS landscape!
+                <br><br>
+                As we know, to make a 3D CSS landscape we need to apply the <b class="propertyBoldTxt">'perspective: __px' property</b> in CSS to our <b class="extraNotesBoldTxt">'.scene'</b> container, along with any other size or positioning styles.
+            </p>
+            <pre><code>
+            <b>.scene</b> {
+                width: 200px;
+                height: 260px;
+                <b>perspective: 600px;</b>
+                }
+            </code></pre>
+            <p class="flexbox-info-txt">
+                Now we can transform the <b class="extraNotesBoldTxt">'.card'</b> space/scene container into a 3D landscape and notice our transformation effects.
+                <br><br>
+                To this object container we'll add <span class="propertyBoldTxt">'width: 100%'</span> and <span class="propertyBoldTxt">'height: 100%'</span> so the card's 'transform-origin:' value will be in the center of container.
+                <br><br>
+                <b>We apply <b class="propertyBoldTxt">'position: relative'</b> to this container so we can apply  <span class="propertyBoldTxt">'position: absolute'</span> to our card faces later - which is needed in 3D space in order to manually place things where we want them to be, and not according to the browser or the typical document flow.</b>
+                <br><br>
+                Finally we will add a CSS3 transition so users can see the transform take effect and some other aesthetic properties:
+            </p>
+            <code><pre>
+            <b>.card</b> {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                border: 1px solid black <b>
+                position: relative;
+                transition: transform 1s;
+                transform-style: preserve-3d;</b>
+            }
+            </code></pre>
+            <p class="flexbox-info-txt">
+                As the perspective effect only effects <i>direct descendant</i> children, in this case the '.card' object container, the children of this container (<b class="extraNotesBoldTxt">'.card__face'</b> children divs) won't be incorporated into the 3D landscape. To rectify this we need to apply <b class="propertyBoldTxt">'transform-style: preserve-3d'</b> to this object container, otherwise, our card flip won't work.
+                <br><br>
+                Now, as mentioned before, we need to apply <b class="propertyBoldTxt">'position: absolute'</b> to our children divs in order to place them where we want to in the 3D landscape. Plus, we need to apply <b class="propertyBoldTxt">'backface-visibility: hidden'</b> so that only the “front side” of both faces are rendered. So our CSS code looks like this, with some aesthetic properties added:
+            </p>
+            <code><pre>
+            <b>.card__face</b> {
+                height: 100%;
+                width: 100%;
+                line-height: 260px;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                font-size: 40px <b>
+                position: absolute;
+                backface-visibility: hidden;</b>
+            }
+            </code></pre>
+            <p class="flexbox-info-txt">
+                To flip <b class="extraNotesBoldTxt">'.card__face--back'</b> we apply a basic 3D transformation of <b class="propertyBoldTxt">'transform: rotateY(180deg)'</b>:
+            </p>
+            <code><pre>
+            <b>.card__face--front</b> {
+                background: red;
+            }
+
+            <b>.card__face--back</b> {
+            background: blue;
+            <b>transform: rotateY(180deg)</b>;
+            }
+            </code></pre>
+            <p class="flexbox-info-txt">
+                With the faces in place, our 3D object container <b class="extraNotesBoldTxt">'.card'</b> requires a corresponding style for when it is flipped. Because we're just working with CSS, we will add a pseudo-class of 'active' so that the card turns when we hold down on it:
+                <code><pre>
+            .card.active {
+                transform: rotateY(180deg);
+                }
+                </pre></code>
+                <br>
+                And now we have our final card flip product!
+            </p>
+            <div class="scene">
+                <div class="card">
+                    <div class="card__face card__face--front">front</div>
+                    <div class="card__face card__face--back">back</div>
+                </div>
+            </div>
+            <p class="flexbox-info-txt">
+                Notice the difference when we don't include or apply certain properties to our card flip object. This will better help us understand why we <em>did</em> include these properties in the first place:
+            </p>
+            <div style="display: flex; width: 100%; justify-content: space-evenly; flex-wrap: wrap;">
+                <div class="scene scene--no-perspective">
+                    <div class="card">
+                        <div class="card__face card__face--front">No perspective</div>
+                        <div class="card__face card__face--back">back</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card card--transform-originR">
+                        <div class="card__face card__face--front">transform-Origin: right</div>
+                        <div class="card__face card__face--back">back</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card card--transform-originL">
+                        <div class="card__face card__face--front">transform-Origin: left</div>
+                        <div class="card__face card__face--back">back</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card card--no-transition">
+                        <div class="card__face card__face--front">No transition</div>
+                        <div class="card__face card__face--back">back</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card card--transform-style-flat">
+                        <div class="card__face card__face--front">transform-style: flat</div>
+                        <div class="card__face card__face--back">back</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card">
+                        <div class="card__face card__face--front card__face--backface-visibility">backface-visibility: visible</div>
+                        <div class="card__face card__face--back card__face--backface-visibility">backface-visibility: visible</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card">
+                        <div class="card__face card__face--front"></div>
+                        <div class="card__face card__face--back card__face--notransform">No backface transform</div>
+                    </div>
+                </div>
+                <div class="scene">
+                    <div class="card card--notransform">
+                        <div class="card__face card__face--front">no .card transform</div>
+                        <div class="card__face card__face--back">back</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h2>3D Cube Project</h2>
+            <p class="flexbox-info-txt">
+                Cards are a good start for working with 3D transforms, but they only show off 3D in transition. To show off 3D at rest, we'll have to create true 3D objects: prisms. For example, a cube!
+                <br><br>
+                Setting up the cube is pretty similar to setting up the card flip. We need the normal 3D setup of: 1) a 3D space/scene container, 2) a 3D object container, 3) the 3D object individual parts/faces. In this case, we will need six individual parts/faces (so 6 divs). Here's our HTML code:
+            </p>
+            <code><pre>
+            < div <b>class="scene-cube"</b>>
+                < div <b>class="cube"</b>>
+                    < div <b>class="cube__face</b> cube__face--front">front< /div>
+                    < div <b>class="cube__face</b> cube__face--back">back< /div>
+                    < div <b>class="cube__face</b> cube__face--right">right< /div>
+                    < div <b>class="cube__face</b> cube__face--left">left< /div>
+                    < div <b>class="cube__face</b> cube__face--top">top< /div>
+                    < div <b>class="cube__face</b> cube__face--bottom">bottom< /div>
+                < /div>
+                < /div>
+            </pre></code>
+            <p class="flexbox-info-txt">
+                And our basic CSS is essentially the same too: <br><br>
+                - applying perspective to the space/scene container:
+                <code><pre>
+                    <b>.scene-cube</b> {
+                        width: 200px;
+                        height: 200px;
+                        <b>perspective: 500px;</b>
+                        }
+                </pre></code>
+                - setting a height and width for the 3D object container, giving it a positioning of 'relative' and telling CSS to preserve the 3D space inherited from the parent to its children:
+                <code><pre>
+                    <b>.cube</b> {
+                        width: 100%;
+                        height: 100%;
+                        <b>position: relative;
+                        transform-style: preserve-3d;</b>
+                        }
+                </pre></code>
+                - finally setting a 'position: absolute' on the object parts and styling them (as well as giving each face a unique color):
+                <code><pre>
+                    <b>.cube__face</b> {
+                        <b>position: absolute;</b>
+                        width: 200px;
+                        height: 200px;
+                        background-color: maroon;
+                        color: white;
+                        font-size: larger;
+                        font-weight: bold;
+                        text-align: center;
+                        opacity: 0.6;
+                        }
+                </pre></code>
+            </p>
+            <p class="flexbox-info-txt">
+                Now we can see all the faces are placed on top of one another (due to the overlapping text) and are ready to be rotated.
+            </p>
+                <div class="scene-cube">
+                    <div class="cube1">
+                        <div class="cube__face1 cube__face1--front">front</div>
+                        <div class="cube__face1 cube__face1--back">back</div>
+                        <div class="cube__face1 cube__face1--right">right</div>
+                        <div class="cube__face1 cube__face1--left">left</div>
+                        <div class="cube__face1 cube__face1--top">top</div>
+                        <div class="cube__face1 cube__face1--bottom">bottom</div>
+                    </div>
+                </div>
+            <p class="flexbox-info-txt">
+                Some from here we now start rotating the cube faces into position. If you can't remember how rotation works in 3D, take a look <b><a href="./css_page.html#rotation-transformation-id" target="_blank">here</a></b>.
+                <br><br>
+                So, in order to get the <b>top and bottom sides</b>, we need to <i>rotate</i> the faces around the <b>X axis.</b>
+                <br><br>
+                In order to get the <b>left, right, front and back sides</b>, we need to <i>rotate</i> the faces around the <b>Y axis.</b> If we use the Z axis for the back side then the writing will be the wrong way round. Technically, we don't need to move our front face at all, but we will write it out in our CSS for consistency.
+                <br><br>
+                So this is what our CSS code looks like for each cube face, and below is what we see:
+                <code><pre>
+                .cube__face--front  {transform: rotateY(  0deg);}
+                .cube__face--right  {transform: rotateY( 90deg);}
+                .cube__face--back   {transform: rotateY(180deg);}
+                .cube__face--left   {transform: rotateY(-90deg);}
+                .cube__face--top    {transform: rotateX( 90deg);}
+                .cube__face--bottom {transform: rotateX(-90deg);}
+                </pre></code>
+            </p>
+                <div class="scene-cube">
+                    <div class="cube2">
+                        <div class="cube__face2 cube__face2--front">front</div>
+                        <div class="cube__face2 cube__face2--back">back</div>
+                        <div class="cube__face2 cube__face2--right">right</div>
+                        <div class="cube__face2 cube__face2--left">left</div>
+                        <div class="cube__face2 cube__face2--top">top</div>
+                        <div class="cube__face2 cube__face2--bottom">bottom</div>
+                    </div>
+                </div>
+            <p class="flexbox-info-txt">
+                Now that faces are rotated only the front and back faces are visible, and if we zoom in, it looks like there's a '+' sign going through our cube. Those are the sides of the other faces perpendicular to the viewer, so they appear on-edge, near-invisible.
+                <br><br>
+                To push these faces out to their appropriate sides, they need to be <i>translated</i> (moved) along the Z axis (which is now relative to their new position in the 3D landscape) out from the center of their positions. Each side of the cube is 200px wide. So to the center it's a distance of 100px, the distance the cube faces will need to be translated (from their current position) in order to move them into position. Remember, the Z axis only accepts length unit values. Also remember, the 'translate( )' method comes <em>after</em> the 'rotate( )' method because the order of transform functions is meaningful. That's why we've rotated the faces first, then translated them outward.
+            </p>
+            <br><br>
+            <div class="scene-cube">
+                <div class="cube3">
+                    <div class="cube__face3 cube__face3--front">front</div>
+                    <div class="cube__face3 cube__face3--back">back</div>
+                    <div class="cube__face3 cube__face3--right">right</div>
+                    <div class="cube__face3 cube__face3--left">left</div>
+                    <div class="cube__face3 cube__face3--top">top</div>
+                    <div class="cube__face3 cube__face3--bottom">bottom</div>
+                </div>
+            </div>
+            <br><br>
+            <p class="flexbox-info-txt">
+                Finally, let's give our cube an animation so that it's spinning and we can fully appreciate its 3D nature! We now have a beautiful 3D cube!
+                <code><pre>
+                    <b>.cube</b> {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        transform-style: preserve-3d;
+                        <b>animation: spinning 6s linear infinite;</b>
+                        }
+
+                    <b>@keyframes spinning {
+                        from  { transform: rotateX(0deg) rotateY(0deg);   }
+                        to    { transform: rotateX(360deg) rotateY(360deg); }
+                        }</b>
+                        <br><br>
+                </pre></code>
+            </p>
+            <br><br>
+            <div class="scene-cube">
+                <div class="cube4">
+                    <div class="cube__face3 cube__face3--front">front</div>
+                    <div class="cube__face3 cube__face3--back">back</div>
+                    <div class="cube__face3 cube__face3--right">right</div>
+                    <div class="cube__face3 cube__face3--left">left</div>
+                    <div class="cube__face3 cube__face3--top">top</div>
+                    <div class="cube__face3 cube__face3--bottom">bottom</div>
+                </div>
+            </div>
+            <br><br><br><br><br><br>
+            <p class="flexbox-info-txt">
+                <b><u style="color: crimson;">FURTHER NOTES</u></b>
+                <br><br>
+                <b><a href="https://codepen.io/amit_sheen/pen/YzqpdrL/8987ff9244e30856aff23b1d2ea4fb8f" target="_blank">Here</a></b> we have a very similar example to the one above but with some toggles so we can the 'perspective:' property value and the 'perspective-origin:' property values. This can help us fully appreciate the effect these properties have on the cube's appearance.
+                <br><br>
+                Additionally, <b><a href="https://www.cssportal.com/css-3d-transform-generator/#csspseudo" target="_blank">this 3D transform generator</a></b> is great for playing around with all the different properties we have discussed in learning about 3D transformations and understanding their impact on the object we're creating.
+                <br><br>
+                <b><a href="https://www.youtube.com/watch?v=NdftnCDwKaU" target="_blank">This Youtube video</a></b> takes our basic 3D cube to another level and shows us what's possible with 3D transformations!
+                <br><br>
+                Going beyond a basic 3D cube, how can we make an 3D rectangle? Or a 3D carousel for displaying something like images? <b><a href="https://3dtransforms.desandro.com/box" target="_blank">Here's</a></b> a webpage which explains how to do that.
+                <br><br>
+                Furthermore, we can also make text 3D and give it transformation effects. See <b><a href="https://www.youtube.com/watch?v=NSWr6dkc_Xw" target="_blank">this video here</a></b> to learn more.
+            </p>
+    </section>
+
+</body>
+</html>

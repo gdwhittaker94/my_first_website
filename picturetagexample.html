@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Tag Example</title>
+</head>
+<body>
+    <picture>
+            <source media="(min-width: 1000px)" srcset="./images/aboutmephoto.jpg">
+            <source media="(min-width: 750px)" srcset="./images/skeleton-arms-out.svg">
+            <img  media="(min-width: 500px)" src="./images/htmlbasic.png" style="height: auto;
+            width: 100%;">
+     </picture>
+     <br><br> <b>
+     If you're using a desktop computer or a laptop, change the size of this window and notice how the pictures change according to the window size! </b>
+     <br><br>
+    <code>
+        Source code: <br>
+        < picture >
+            <br> < source media="(min-width: 1000px)" srcset="./images/aboutmephoto.jpg" >
+            <br> < source media="(min-width: 750px)" srcset="./images/skeleton-arms-out.svg" >
+            <br> < img media="(min-width: 500px)"src="./images/skeleton-arms-out.svg" style="height: auto; width:100%">
+         <br> < /picture >
+    </code>
+</body>
+</html>
